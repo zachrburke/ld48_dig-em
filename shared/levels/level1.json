@@ -1,8 +1,8 @@
 [
     {
         "body": {
-            "x": 103,
-            "y": 75,
+            "x": 143,
+            "y": 81,
             "type": "dynamic",
             "vel": {
                 "x": 0,
@@ -28,14 +28,19 @@
                 "up": "W",
                 "down": "S",
                 "left": "A",
-                "right": "D"
+                "right": "D",
+                "speed": 0.5
+            },
+            "dig": {
+                "command": "E"
             },
             "box": {
                 "color": "green"
             },
             "player": true,
             "physical": true,
-            "health": 5
+            "health": 5,
+            "falls": true
         },
         "hits": []
     },
@@ -153,10 +158,13 @@
     },
     {
         "body": {
-            "x": 529,
-            "y": 380,
+            "x": 513,
+            "y": 347,
             "type": "dynamic",
-            "vel": { "x": 0, "y": 0 },
+            "vel": {
+                "x": 0,
+                "y": 0
+            },
             "maxVel": {
                 "x": 5,
                 "y": 5
@@ -167,20 +175,283 @@
             },
             "bounds": {
                 "x": 529,
-                "y": 378,
+                "y": 380,
                 "w": 64,
                 "h": 64
             }
         },
         "components": {
-            "ai_controlled": true,
+            "ai_controlled": {
+                "speed": 0.5,
+                "interval": 500,
+                "elapsed": 0,
+                "step_size": 64,
+                "target": "player"
+            },
             "hurts_player": {
                 "damage": 1,
                 "pushback": 64
             },
             "box": {
                 "color": "purple"
+            },
+            "physical": true,
+            "falls": true
+        },
+        "hits": []
+    },
+    {
+        "body": {
+            "x": 76,
+            "y": 71,
+            "type": "static",
+            "maxVel": {
+                "x": 0,
+                "y": 0
+            },
+            "accel": {
+                "x": 0,
+                "y": 0
+            },
+            "bounds": {
+                "w": 640,
+                "h": 448
             }
+        },
+        "components": {
+            "dig_grid": {
+                "width": 40,
+                "height": 28,
+                "node_size": {
+                    "w": 16,
+                    "h": 16
+                },
+                "map": []
+            }
+        },
+        "hits": []
+    },
+    {
+        "body": {
+            "x": 1008,
+            "y": 128,
+            "type": "static",
+            "maxVel": {
+                "x": 0,
+                "y": 0
+            },
+            "accel": {
+                "x": 0,
+                "y": 0
+            },
+            "bounds": {
+                "x": 1000,
+                "y": 0,
+                "w": 64,
+                "h": 400
+            }
+        },
+        "components": {
+            "box": {
+                "color": "gray"
+            },
+            "collision_map": true
+        },
+        "hits": []
+    },
+    {
+        "body": {
+            "x": 1716,
+            "y": 128,
+            "type": "static",
+            "maxVel": {
+                "x": 0,
+                "y": 0
+            },
+            "accel": {
+                "x": 0,
+                "y": 0
+            },
+            "bounds": {
+                "x": 1000,
+                "y": 0,
+                "w": 64,
+                "h": 400
+            }
+        },
+        "components": {
+            "box": {
+                "color": "gray"
+            },
+            "collision_map": true
+        },
+        "hits": []
+    },
+    {
+        "body": {
+            "x": 1072,
+            "y": 64,
+            "type": "static",
+            "maxVel": {
+                "x": 0,
+                "y": 0
+            },
+            "accel": {
+                "x": 0,
+                "y": 0
+            },
+            "bounds": {
+                "x": 1000,
+                "y": 0,
+                "w": 64,
+                "h": 64
+            }
+        },
+        "components": {
+            "box": {
+                "color": "gray"
+            },
+            "collision_map": true
+        },
+        "hits": []
+    },
+    {
+        "body": {
+            "x": 1074,
+            "y": 528,
+            "type": "static",
+            "maxVel": {
+                "x": 0,
+                "y": 0
+            },
+            "accel": {
+                "x": 0,
+                "y": 0
+            },
+            "bounds": {
+                "x": 1000,
+                "y": 0,
+                "w": 64,
+                "h": 64
+            }
+        },
+        "components": {
+            "box": {
+                "color": "gray"
+            },
+            "collision_map": true
+        },
+        "hits": []
+    },
+    {
+        "body": {
+            "x": 1650,
+            "y": 64,
+            "type": "static",
+            "maxVel": {
+                "x": 0,
+                "y": 0
+            },
+            "accel": {
+                "x": 0,
+                "y": 0
+            },
+            "bounds": {
+                "x": 1000,
+                "y": 0,
+                "w": 64,
+                "h": 64
+            }
+        },
+        "components": {
+            "box": {
+                "color": "gray"
+            },
+            "collision_map": true
+        },
+        "hits": []
+    },
+    {
+        "body": {
+            "x": 1650,
+            "y": 528,
+            "type": "static",
+            "maxVel": {
+                "x": 0,
+                "y": 0
+            },
+            "accel": {
+                "x": 0,
+                "y": 0
+            },
+            "bounds": {
+                "x": 1000,
+                "y": 528,
+                "w": 64,
+                "h": 64
+            }
+        },
+        "components": {
+            "box": {
+                "color": "gray"
+            },
+            "collision_map": true
+        },
+        "hits": []
+    },
+    {
+        "body": {
+            "x": 1138,
+            "y": -1,
+            "type": "static",
+            "maxVel": {
+                "x": 0,
+                "y": 0
+            },
+            "accel": {
+                "x": 0,
+                "y": 0
+            },
+            "bounds": {
+                "x": 1000,
+                "y": 528,
+                "w": 512,
+                "h": 64
+            }
+        },
+        "components": {
+            "box": {
+                "color": "gray"
+            },
+            "collision_map": true
+        },
+        "hits": []
+    },
+    {
+        "body": {
+            "x": 1138,
+            "y": 592,
+            "type": "static",
+            "maxVel": {
+                "x": 0,
+                "y": 0
+            },
+            "accel": {
+                "x": 0,
+                "y": 0
+            },
+            "bounds": {
+                "x": 1000,
+                "y": 528,
+                "w": 512,
+                "h": 64
+            }
+        },
+        "components": {
+            "box": {
+                "color": "gray"
+            },
+            "collision_map": true
         },
         "hits": []
     }

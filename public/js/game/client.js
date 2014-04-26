@@ -53,7 +53,6 @@ define([
 			var entity;
 
 			Physics.Update();
-			Input.Update();
 
 			while(i--) {
 				entity = Client.entities[i];
@@ -64,6 +63,7 @@ define([
 				}
 			}
 
+			Input.Update();
 		},
 
 		Draw: function() {
@@ -148,14 +148,14 @@ define([
 
 		Physics.RemoveBody(this);
 
-		if (this.components.hasOwnProperty('platformer')) {
-			var is_player = this.components.platformer.is_player;
-			if (is_player) 
-				Client.LoadLevel('/shared/levels/leveltest.json', Client.OnLevelLoad);
+		if (this.components.hasOwnProperty('player')) {
+			Client.LoadLevel('/shared/levels/level1.json', Client.OnLevelLoad);
 		}
 	};
 
 	Client.Entity = Entity;
+
+	window.Client = Client;
 
 	return Client;
 });
