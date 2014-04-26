@@ -2,7 +2,7 @@ define([
 	'game/systems', 
 	'game/graphics',
 	'game/input',
-	'/shared/js/game/physics.js'
+	'shared/game/physics'
 	], function(Systems, Graphics, Input, Physics) {
 
 	// RAF shim

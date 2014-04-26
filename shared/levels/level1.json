@@ -33,7 +33,9 @@
             "box": {
                 "color": "green"
             },
-            "physical": true
+            "player": true,
+            "physical": true,
+            "health": 5
         },
         "hits": []
     },
@@ -79,7 +81,7 @@
                 "y": 0
             },
             "bounds": {
-                "x": 0,
+                "x": 734,
                 "y": 0,
                 "w": 64,
                 "h": 600
@@ -107,7 +109,7 @@
                 "y": 0
             },
             "bounds": {
-                "x": 0,
+                "x": 64,
                 "y": 0,
                 "w": 670,
                 "h": 64
@@ -135,7 +137,7 @@
                 "y": 0
             },
             "bounds": {
-                "x": 0,
+                "x": 64,
                 "y": 534,
                 "w": 670,
                 "h": 64
@@ -145,6 +147,39 @@
             "collision_map": true,
             "box": {
                 "color": "gray"
+            }
+        },
+        "hits": []
+    },
+    {
+        "body": {
+            "x": 529,
+            "y": 380,
+            "type": "dynamic",
+            "vel": { "x": 0, "y": 0 },
+            "maxVel": {
+                "x": 5,
+                "y": 5
+            },
+            "accel": {
+                "x": 0,
+                "y": 0
+            },
+            "bounds": {
+                "x": 529,
+                "y": 378,
+                "w": 64,
+                "h": 64
+            }
+        },
+        "components": {
+            "ai_controlled": true,
+            "hurts_player": {
+                "damage": 1,
+                "pushback": 64
+            },
+            "box": {
+                "color": "purple"
             }
         },
         "hits": []
