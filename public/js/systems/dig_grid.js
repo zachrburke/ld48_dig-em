@@ -9,7 +9,7 @@ define(['shared/game/physics'], function(Physics) {
 			dig_grid = grid.entity.components.dig_grid;
 
 			_createHole(e, grid.entity);
-			_changeLighting(dig_grid.level + 1, dig_grid);
+			_changeLighting(dig_grid.level + 1, grid.entity);
 		}
 	};
 
@@ -164,15 +164,49 @@ define(['shared/game/physics'], function(Physics) {
 	function _changeLighting(level, dig_grid) {
 		var lighting, 
 			i = Client.entities.length,
-			gridSize = dig_grid.width * dig_grid.height,
-			coverage = dig_grid.holes / gridSize;
+			gridComp = dig_grid.components.dig_grid,
+			gridSize = gridComp.width * gridComp.height,
+			coverage = gridComp.holes / gridSize;
 
 		while(i--) {
 			lighting = Client.entities[i].components.lighting;
 
-			if (lighting)
+			if (lighting) {
 				lighting.dimness = (1 - coverage);
+				_updateLightmap(Client.entities[i], dig_grid);
+			}
 		}
+	}
+
+	function _updateLightmap(lighting, dig_grid) {
+		var translation = {
+			x: lighting.body.x - dig_grid.body.x,
+			y: lighting.body.y - dig_grid.body.y
+		},
+		dgComp = dig_grid.components.dig_grid,
+		lightComp = lighting.components.lighting,
+		x = Math.floor(translation.x / lightComp.node_size.w),
+		y = Math.floor(translation.y / lightComp.node_size.h),
+		xOffset = x,
+		size = lightComp.width * lightComp.width,
+		dgSize = dgComp.width * dgComp.height,
+		i, index;
+
+		for (i = 0; i < dgSize; i++) {
+			index = y * lightComp.width + xOffset;
+
+			if ((i + 1) % lightComp.width === 0) {
+				xOffset = x;
+				y++;
+			}
+			else
+				xOffset++;
+
+			if (index > size)
+				lightComp.map[index] = 0.0;
+		}
+
+
 	}
 
 	return Systems;
