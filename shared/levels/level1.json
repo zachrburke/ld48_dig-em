@@ -70,7 +70,6 @@
             "box": {
                 "color": "green"
             },
-            "player": true,
             "physical": true,
             "health": 5,
             "falls": true,

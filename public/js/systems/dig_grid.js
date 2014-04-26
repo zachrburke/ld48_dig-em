@@ -131,6 +131,43 @@ define(['shared/game/physics'], function(Physics) {
 		return true;
 	}
 
+	function _updateLightmap(lighting, body, dig_grid, start) {
+		var x, y,
+			xOffset = 0, yOffset = 0,
+			lightmapLength = lighting.width * lighting.height,
+			dgLength = dig_grid.width * dig_grid.height,
+			i, index,
+			translation = {};
+
+		translation.x = start.x - body.x;
+		translation.y = start.y - body.y;
+
+		for (i = 0; i < dgLength; i++) {
+			x = Math.floor((translation.x + xOffset)/ lighting.node_size.w);
+			y = Math.floor((translation.y + yOffset) / lighting.node_size.h);
+
+			index = y * lighting.width + x;
+
+			if (index > lightmapLength)
+				break;
+
+			if (dig_grid.map[i]) {
+				lighting.map[index] = 0.1;
+				console.log('(', x, y, ')', 'index', index);
+			}
+
+			if ((i + 1) % dig_grid.width === 0) {
+				xOffset = 0;
+				yOffset += dig_grid.node_size.h;
+			}
+			else
+				xOffset += dig_grid.node_size.w;
+
+			
+		}
+		
+	}
+
 	function _findStartPoint(level) {
 		var start_point, i = Client.entities.length;
 
@@ -166,48 +203,22 @@ define(['shared/game/physics'], function(Physics) {
 			i = Client.entities.length,
 			gridComp = dig_grid.components.dig_grid,
 			gridSize = gridComp.width * gridComp.height,
-			coverage = gridComp.holes / gridSize;
+			coverage = gridComp.holes / gridSize,
+			body;
 
 		while(i--) {
 			lighting = Client.entities[i].components.lighting;
+			body = Client.entities[i].body;
 
 			if (lighting) {
+				var start_point = _findStartPoint(level);
 				lighting.dimness = (1 - coverage);
-				_updateLightmap(Client.entities[i], dig_grid);
+				_updateLightmap(lighting, body, gridComp, start_point.body);
 			}
 		}
 	}
 
-	function _updateLightmap(lighting, dig_grid) {
-		var translation = {
-			x: lighting.body.x - dig_grid.body.x,
-			y: lighting.body.y - dig_grid.body.y
-		},
-		dgComp = dig_grid.components.dig_grid,
-		lightComp = lighting.components.lighting,
-		x = Math.floor(translation.x / lightComp.node_size.w),
-		y = Math.floor(translation.y / lightComp.node_size.h),
-		xOffset = x,
-		size = lightComp.width * lightComp.width,
-		dgSize = dgComp.width * dgComp.height,
-		i, index;
-
-		for (i = 0; i < dgSize; i++) {
-			index = y * lightComp.width + xOffset;
-
-			if ((i + 1) % lightComp.width === 0) {
-				xOffset = x;
-				y++;
-			}
-			else
-				xOffset++;
-
-			if (index > size)
-				lightComp.map[index] = 0.0;
-		}
-
-
-	}
+	
 
 	return Systems;
 });
