@@ -60,6 +60,18 @@ define(['game/graphics',
 		Graphics.context.restore();
 	};
 
+	Graphics.Systems.lighting = function(e, c) {
+		var context = Graphics.context;
+
+		context.save();
+		context.globalAlpha = c.dimness;
+		context.translate(-Graphics.offset.x, -Graphics.offset.y);
+
+		context.fillRect(e.body.x, e.body.y, c.width, c.height);
+
+		context.restore();
+	};
+
 	Systems.player_controlled = function(e, c) {
 		e.body.vel = { x: 0, y: 0 };
 
@@ -74,10 +86,14 @@ define(['game/graphics',
 	};
 
 	Systems.dig = function(e, c) {
-		var grid = e.Touches('dig_grid')[0];
+		var grid = e.Touches('dig_grid')[0],
+			dig_grid;
 
 		if (grid && Input.KeyPressed(c.command)) {
+			dig_grid = grid.entity.components.dig_grid;
+
 			_createHole(e, grid.entity);
+			_changeLighting(dig_grid.level + 1, dig_grid);
 		}
 	};
 
@@ -173,15 +189,16 @@ define(['game/graphics',
 	};
 
 	Systems.falls = function(e, c) {
-		var grid = e.Touches('dig_grid')[0];
+		var grid = e.Touches('dig_grid')[0],
+			dig_grid;
 
 		if (grid) {
 			grid = grid.entity;
+			dig_grid = grid.components.dig_grid;
 
-			if(_willFallInGap(e, grid.components.dig_grid, grid)) {
-				e.body.x += 1070; 
-				if (e.components.player)
-					Graphics.offset.x += 1000;
+			if(_willFallInGap(e, dig_grid, grid)) {
+				var start_point = _findStartPoint(dig_grid.level + 1);
+				_dropEntity(e, start_point);
 			}
 		}	
 	};
@@ -195,6 +212,29 @@ define(['game/graphics',
 		if (c.elapsed >= c.interval) {
 			delete e.components.stun;
 		}
+	};
+
+	Systems.center = function(e, c) {
+		var center = { 
+			x: Graphics.canvas.width / 2, 
+			y: Graphics.canvas.height / 2 
+		};
+
+		Graphics.offset.x = e.body.x - center.x;
+		Graphics.offset.y = e.body.y - center.y;
+
+		if (Graphics.offset.x < c.view.x)
+			Graphics.offset.x = c.view.x;
+
+		if (Graphics.offset.y < c.view.y)
+			Graphics.offset.y = c.view.y;
+
+		if (Graphics.offset.x + Graphics.canvas.width > c.view.width) 
+			Graphics.offset.x = c.view.width - Graphics.canvas.width;
+
+		if (Graphics.offset.y + Graphics.canvas.height > c.view.height) 
+			Graphics.offset.y = c.view.height - Graphics.canvas.height;
+
 	};
 
 	function _normalize(v) {
@@ -234,8 +274,10 @@ define(['game/graphics',
 	}
 
 	function _createHolesRecursive(index, dig_grid, level) {
-		if (!dig_grid.map[index])
+		if (!dig_grid.map[index]) {
 			dig_grid.map[index] = true;
+			dig_grid.holes++;
+		}
 		else if (level > 3)
 			return;
 		else {
@@ -291,7 +333,41 @@ define(['game/graphics',
 		}
 
 		return true;
+	}
 
+	function _findStartPoint(level) {
+		var start_point, i = Client.entities.length;
+
+		while(i--) {
+			start_point = Client.entities[i].components.start_point;
+			if (start_point && start_point.level === level)
+				return Client.entities[i];
+		}
+	}
+
+	function _dropEntity(e, start_point) {
+		var center = e.components.center;
+
+		e.body.x += start_point.body.x;
+		e.body.y += start_point.body.y;
+
+		if (center) {
+			center.view = start_point.components.start_point.view;
+		}
+	}
+
+	function _changeLighting(level, dig_grid) {
+		var lighting, 
+			i = Client.entities.length,
+			gridSize = dig_grid.width * dig_grid.height,
+			coverage = dig_grid.holes / gridSize;
+
+		while(i--) {
+			lighting = Client.entities[i].components.lighting;
+
+			if (lighting)
+				lighting.dimness = (1 - coverage);
+		}
 	}
 
 	return Systems;

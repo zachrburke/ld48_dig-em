@@ -22,7 +22,7 @@ main textarea { font-family: consolas, monospace; -moz-tab-size:2; -o-tab-size:2
 
 #GamePanel { width: 800px; border: 1px solid gray; float: left; margin: 10 10px 0 10px; }
 
-canvas#GameCanvas { background-color: #6B9CCC; }
+canvas#GameCanvas { background-color: #572F1C; }
 canvas#TileSelection { display: block; width: 776px; height: 256px; background-color: #eee; margin: 10px auto;}
 
 #Controls {-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;}
