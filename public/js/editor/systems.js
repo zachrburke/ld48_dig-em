@@ -2,9 +2,16 @@ define(['game/graphics'], function(Graphics) {
 
 	var Systems = {};
 
-	Graphics.Systems.player = function(e, c) { };
-
 	Systems.dig_grid = function(e, c) {
+		Graphics.context.save();
+		Graphics.context.translate(-Graphics.offset.x, -Graphics.offset.y);
+
+		_drawGrid(e, c, c.node_size);
+
+		Graphics.context.restore();
+	};
+
+	Systems.lighting = function(e, c) {
 		Graphics.context.save();
 		Graphics.context.translate(-Graphics.offset.x, -Graphics.offset.y);
 

@@ -12,6 +12,9 @@ require([
 	'editor/tileset'
 	], function(Client, Graphics, EditorUI, Systems) {
 
+	Graphics.Systems.player = function(e, c) { };
+	Graphics.Systems.lighting = function(e, c) { };
+
 	// Override loop to perform only Draw calls
 	Client.Loop = function() {
 		var now = new Date();

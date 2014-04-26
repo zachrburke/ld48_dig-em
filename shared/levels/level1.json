@@ -1,5 +1,5 @@
 [
-	{
+    {
         "body": {
             "x": 972,
             "y": -19,
@@ -13,17 +13,21 @@
                 "y": 0
             },
             "bounds": {
-                "x": 1008,
-                "y": 0,
+                "x": 972,
+                "y": -19,
                 "w": 0,
                 "h": 0
             }
         },
         "components": {
             "lighting": {
-                "width": 1000,
-                "height": 1000,
-                "dimness": 1
+                "width": 27,
+                "height": 22,
+                "node_size": {
+                    "w": 32,
+                    "h": 32
+                },
+                "map": []
             }
         },
         "hits": []
@@ -561,6 +565,138 @@
                     "height": 650
                 }
             }
+        },
+        "hits": []
+    },
+    {
+        "body": {
+            "x": 1525,
+            "y": 159,
+            "type": "dynamic",
+            "vel": {
+                "x": 0,
+                "y": 0
+            },
+            "maxVel": {
+                "x": 1,
+                "y": 1
+            },
+            "accel": {
+                "x": 0,
+                "y": 0
+            },
+            "bounds": {
+                "x": 1525,
+                "y": 159,
+                "w": 64,
+                "h": 64
+            }
+        },
+        "components": {
+            "ai_controlled": {
+                "speed": 0.5,
+                "interval": 500,
+                "elapsed": 0,
+                "step_size": 64,
+                "target": "player"
+            },
+            "hurts_player": {
+                "damage": 1,
+                "pushback": 64
+            },
+            "box": {
+                "color": "purple"
+            },
+            "physical": true,
+            "falls": true
+        },
+        "hits": []
+    },
+    {
+        "body": {
+            "x": 1500,
+            "y": 400,
+            "type": "dynamic",
+            "vel": {
+                "x": 0,
+                "y": 0
+            },
+            "maxVel": {
+                "x": 1,
+                "y": 1
+            },
+            "accel": {
+                "x": 0,
+                "y": 0
+            },
+            "bounds": {
+                "x": 1500,
+                "y": 400,
+                "w": 64,
+                "h": 64
+            }
+        },
+        "components": {
+            "ai_controlled": {
+                "speed": 0.5,
+                "interval": 500,
+                "elapsed": 0,
+                "step_size": 64,
+                "target": "player"
+            },
+            "hurts_player": {
+                "damage": 1,
+                "pushback": 64
+            },
+            "box": {
+                "color": "purple"
+            },
+            "physical": true,
+            "falls": true
+        },
+        "hits": []
+    },
+    {
+        "body": {
+            "x": 1210,
+            "y": 337,
+            "type": "dynamic",
+            "vel": {
+                "x": 0,
+                "y": 0
+            },
+            "maxVel": {
+                "x": 1,
+                "y": 1
+            },
+            "accel": {
+                "x": 0,
+                "y": 0
+            },
+            "bounds": {
+                "x": 1210,
+                "y": 337,
+                "w": 64,
+                "h": 64
+            }
+        },
+        "components": {
+            "ai_controlled": {
+                "speed": 0.5,
+                "interval": 500,
+                "elapsed": 0,
+                "step_size": 64,
+                "target": "player"
+            },
+            "hurts_player": {
+                "damage": 1,
+                "pushback": 64
+            },
+            "box": {
+                "color": "purple"
+            },
+            "physical": true,
+            "falls": true
         },
         "hits": []
     }
