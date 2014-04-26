@@ -1,0 +1,9 @@
+extends layout
+
+block content
+	h1 Phatformer
+	#GamePanel
+		strong(id='PreloadMsg') Loading...
+		canvas(id='GameCanvas')
+
+	script(src="/js/lib/require.js", data-main="/js/main")

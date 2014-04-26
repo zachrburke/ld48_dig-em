@@ -1,0 +1,152 @@
+[
+    {
+        "body": {
+            "x": 103,
+            "y": 75,
+            "type": "dynamic",
+            "vel": {
+                "x": 0,
+                "y": 0
+            },
+            "maxVel": {
+                "x": 2,
+                "y": 20
+            },
+            "accel": {
+                "x": 0,
+                "y": 0
+            },
+            "bounds": {
+                "x": 103,
+                "y": 75,
+                "w": 64,
+                "h": 64
+            }
+        },
+        "components": {
+            "player_controlled": {
+                "up": "W",
+                "down": "S",
+                "left": "A",
+                "right": "D"
+            },
+            "box": {
+                "color": "green"
+            },
+            "physical": true
+        },
+        "hits": []
+    },
+    {
+        "body": {
+            "x": 0,
+            "y": 0,
+            "type": "static",
+            "maxVel": {
+                "x": 0,
+                "y": 0
+            },
+            "accel": {
+                "x": 0,
+                "y": 0
+            },
+            "bounds": {
+                "x": 0,
+                "y": 0,
+                "w": 64,
+                "h": 600
+            }
+        },
+        "components": {
+            "collision_map": true,
+            "box": {
+                "color": "gray"
+            }
+        },
+        "hits": []
+    },
+    {
+        "body": {
+            "x": 734,
+            "y": 0,
+            "type": "static",
+            "maxVel": {
+                "x": 0,
+                "y": 0
+            },
+            "accel": {
+                "x": 0,
+                "y": 0
+            },
+            "bounds": {
+                "x": 0,
+                "y": 0,
+                "w": 64,
+                "h": 600
+            }
+        },
+        "components": {
+            "collision_map": true,
+            "box": {
+                "color": "gray"
+            }
+        },
+        "hits": []
+    },
+    {
+        "body": {
+            "x": 64,
+            "y": 0,
+            "type": "static",
+            "maxVel": {
+                "x": 0,
+                "y": 0
+            },
+            "accel": {
+                "x": 0,
+                "y": 0
+            },
+            "bounds": {
+                "x": 0,
+                "y": 0,
+                "w": 670,
+                "h": 64
+            }
+        },
+        "components": {
+            "collision_map": true,
+            "box": {
+                "color": "gray"
+            }
+        },
+        "hits": []
+    },
+    {
+        "body": {
+            "x": 64,
+            "y": 534,
+            "type": "static",
+            "maxVel": {
+                "x": 0,
+                "y": 0
+            },
+            "accel": {
+                "x": 0,
+                "y": 0
+            },
+            "bounds": {
+                "x": 0,
+                "y": 534,
+                "w": 670,
+                "h": 64
+            }
+        },
+        "components": {
+            "collision_map": true,
+            "box": {
+                "color": "gray"
+            }
+        },
+        "hits": []
+    }
+]

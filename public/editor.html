@@ -1,0 +1,89 @@
+<html lang='en'>
+<head>
+	<title>Dig'em Editor</title>
+	<link rel='stylesheet' href='/css/editor.css' />
+	<script src="/js/lib/jquery.js"></script>
+	<script src="/js/lib/tabIndent.js"></script>
+	<script src='/js/lib/require.js' data-main='/js/editor'></script>
+</head>
+<body>
+	<template id='BodyTemplate'>
+		<fieldset>
+			<legend>Position</legend>
+			<div>
+				<label>x</label>
+				<input class='Position' type="number" placeholder="X Position"/>
+			</div>
+			<div>
+				<label>y</label>
+				<input class='Position' type="number" placeholder="Y Position" />
+			</div>
+		</fieldset>
+		<fieldset>
+			<legend>Type</legend>
+			<div>
+				<select class='BodyType'>
+					<option>none</option>
+					<option>dynamic</option>
+					<option>static</option>
+				</select>
+			</div>
+		</fieldset>
+		<fieldset class='Speed'>
+			<legend>Speed</legend>
+			<div>
+				<label>max vel x</label>
+				<input class='MaxVel' type='number' placeholder='Max Vel X' />
+			</div>
+			<div>
+				<label>max vel y</label>
+				<input class='MaxVel' type='number' placeholder='Max Vel Y' />
+			</div>						
+		</fieldset>
+		<fieldset class='Bounds'>
+			<legend>Bounds</legend>
+			<div>
+				<label>width</label>
+				<input class="Size" type='number' placeholder="Width" />
+			</div>
+			<div>
+				<label>height</label>
+				<input class="Size" type='number' placeholder="Height" />
+			</div>
+		</fieldset>
+		<fieldset class='Components'>
+			<legend>Components</legend>
+			<div>
+				<textarea class='tabIndent'></textarea>
+			</div>
+		</fieldset>
+	</template>
+
+	<main>
+		<div id='GamePanel'>
+			<canvas id='GameCanvas' oncontextmenu="return false;"></canvas>
+			<canvas id='TileSelection' oncontextmenu="return false;"></canvas>
+		</div>
+		<section id='Controls' class='Panel'>
+			<nav>
+				<a href='#' id='Save'>Save</a>
+				<a href='#' id='NewButton'>New Entity</a>
+				<a href='#' id='Delete'>Delete</a>
+			</nav>
+			<div class='Body' id='BodyForm1'></div>
+		</section>
+		<section id='Output' class='Panel Fixed'>
+			<a href='#' class='Close'>Close</a>
+			<div>
+				<textarea></textarea>
+			<div>
+		</section>
+		<section id='NewEntity' class='Panel Fixed'>
+		<h4>Create New Entity</h4>
+			<div class='Body'></div>
+			<button>Create</button>
+			<a href='#' class='Close'>Close</a>
+		</section>
+	</main>
+</body>
+</html>

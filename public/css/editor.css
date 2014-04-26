@@ -1,0 +1,35 @@
+body { width: 100%; height: 100%; font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; margin: 0; padding: 0; overflow: hidden; }
+
+a { color: #00B7FF; text-decoration: none; }
+a:hover { color: #0094DD; }
+
+h4 { margin-top: 0; }
+
+template { display: none !important; }
+
+nav { margin-bottom: 10px; }
+nav a { margin-right: 5px; }
+
+main { width: 1120px; }
+main .Panel { border: 1px solid #bbb; background-color: #eee; padding: 10px; margin-top: 10px; float: left; }
+main #NewEntity { position: absolute; width: 200px; top: 200px; left: 400px; padding: 20px; display: none; }
+main fieldset { border: 1px solid gray }
+main .Body div { text-align: center; margin-top: 5px; }
+main textarea { font-family: consolas, monospace; -moz-tab-size:2; -o-tab-size:2; tab-size:2;}
+.Body .Components textarea { width: 100%; height: 45%; margin-top: 10px; }
+
+#NewEntity textarea { height: 120px; }
+
+#GamePanel { width: 800px; border: 1px solid gray; float: left; margin: 10 10px 0 10px; }
+
+canvas#GameCanvas { background-color: #6B9CCC; }
+canvas#TileSelection { display: block; width: 776px; height: 256px; background-color: #eee; margin: 10px auto;}
+
+#Controls {-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;}
+#Controls { width: 280px; height: 878px; overflow: scroll; }
+
+
+#Output { position: absolute; display: none; width: 800px; height: 600px; top: 200px; left: 200px; }
+#Output textarea { border: 1px solid #bbb; width: 100%; height: 95%; margin-top: 4px; }
+
+textarea.Error { border: 1px solid red; }
