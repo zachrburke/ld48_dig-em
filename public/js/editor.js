@@ -79,7 +79,7 @@ require([
 				e.body.y - Graphics.offset.y - 12
 			);
 
-		if (e.body.bounds) {
+		if (e.body.bounds && e === selectedEntity) {
 			Graphics.context.rect(
 				e.body.x - Graphics.offset.x, 
 				e.body.y - Graphics.offset.y, 

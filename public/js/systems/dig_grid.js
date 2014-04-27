@@ -30,23 +30,36 @@ define(['shared/game/physics'], function(Physics) {
 
 	Systems.falling = function(e, c) {
 		var box = e.components.box,
-			center = e.components.center;
-
-		e.body.vel.x = 0;
-		e.body.vel.y = 0;
+			center = e.components.center,
+			step = Physics.delta / c.interval;
 
 		c.elapsed += Physics.delta;
 
+		if (box)
+			box.level += step;
+
+		if (center) {
+			center.view.x += c.tween.view.x * step;
+			center.view.y += c.tween.view.y * step;
+			center.view.width += c.tween.view.width * step;
+			center.view.height += c.tween.view.height * step;
+		}
+
+		e.body.x += c.tween.body.x * step;
+		e.body.y += c.tween.body.y * step;
+
 		if (c.elapsed > c.interval) {
+			e.components.falls = true;
+			e.components.physical = true;
+
+			delete e.components.falling;
+
 			e.body.x = c.new_pos.x;
 			e.body.y = c.new_pos.y;
 
-			e.components.falls = true;
-			delete e.components.falling;
-
 			if (box) {
 				box.alpha = 1.0;
-				box.level++;
+				box.level = Math.round(box.level);
 			}
 
 			if (center) {
@@ -191,7 +204,26 @@ define(['shared/game/physics'], function(Physics) {
 			view: start_point.components.start_point.view
 		};
 
+		e.components.falling.tween = {
+			body: {
+				x: e.components.falling.new_pos.x - e.body.x,
+				y: e.components.falling.new_pos.y - e.body.y
+			}			
+		};
+
+		if (center) {
+			start_point = start_point.components.start_point;
+
+			e.components.falling.tween.view = {
+				x: start_point.view.x - center.view.x,
+				y: start_point.view.y - center.view.y,
+				width: start_point.view.width - center.view.width,
+				height: start_point.view.height - center.view.height
+			};
+		}
+
 		delete e.components.falls;
+		delete e.components.physical;
 
 		if (box)
 			box.alpha = 0.5;
@@ -217,7 +249,26 @@ define(['shared/game/physics'], function(Physics) {
 		}
 	}
 
-	
+	function _normalize(v) {
+		var magnitude = _magnitude(v);
+
+		if (magnitude > 0)
+			return {
+				x: v.x / magnitude,
+				y: v.y / magnitude
+			};
+		else
+			return { x: 0, y: 0 };
+	}
+
+	function _magnitude(v) {
+		var magnitude;
+
+		magnitude = Math.pow(v.x, 2) + Math.pow(v.y, 2);
+		magnitude = Math.sqrt(magnitude);
+
+		return magnitude;
+	}
 
 	return Systems;
 });
