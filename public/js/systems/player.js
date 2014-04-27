@@ -41,8 +41,6 @@ function(Physics, Graphics, Level) {
 	};
 
 	Systems.stun = function(e, c) {
-		var box = e.components.box;
-
 		e.body.vel.x = 0;
 		e.body.vel.y = 0;
 
@@ -50,6 +48,16 @@ function(Physics, Graphics, Level) {
 
 		if (c.elapsed >= c.interval) {
 			delete e.components.stun;
+		}
+	};
+
+	Systems.invulnerable = function(e, c) {
+		var box = e.components.box;
+
+		c.elapsed += Physics.delta;
+
+		if (c.elapsed >= c.interval) {
+			delete e.components.invulnerable;
 
 			if (box)
 				box.alpha = 1.0;

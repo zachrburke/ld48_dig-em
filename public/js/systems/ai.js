@@ -11,7 +11,7 @@ define(['shared/game/physics'], function(Physics) {
 			mtd = _normalize(players[i].mtd);
 			player = players[i].entity;
 
-			if (player.components.stun)
+			if (player.components.invulnerable)
 				continue;
 
 			if (mtd.x)
@@ -23,11 +23,16 @@ define(['shared/game/physics'], function(Physics) {
 				player.components.health -= c.damage;
 
 			if (player.components.box)
-				player.components.box.alpha = 0.7;
+				player.components.box.alpha = 0.4;
 
 			player.components.stun = {
 				elapsed: 0,
 				interval: 300
+			};
+
+			player.components.invulnerable = {
+				elapsed: 0,
+				interval: 1500	
 			};
 		}
 	};

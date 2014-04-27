@@ -63,7 +63,14 @@ define(['shared/game/physics'], function(Physics) {
 			}
 
 			if (center) {
+				// hacks hacks hacks hacks
+				// taking the lighting on the new level out and
+				// putting it at the beginning so it draws on top of everything...
 				center.view = c.view;
+				var lighting = _findLighting(c.level);
+				var index = Client.entities.indexOf(lighting);
+				var thing = Client.entities.splice(index, 1);
+				Client.entities.unshift(lighting);
 			}
 
 		}
@@ -72,7 +79,8 @@ define(['shared/game/physics'], function(Physics) {
 	function _createHole(e, grid) {
 		var translation = {},
 			dig_grid = grid.components.dig_grid,
-			x, y, index;
+			x, y, index,
+			direction = e.components.direction;
 
 		translation.x = e.body.x - grid.body.x;
 		translation.y = e.body.y - grid.body.y;
@@ -190,6 +198,16 @@ define(['shared/game/physics'], function(Physics) {
 		}
 	}
 
+	function _findLighting(level) {
+		var lighting, i = Client.entities.length;
+
+		while(i--) {
+			lighting = Client.entities[i].components.lighting;
+			if (lighting && lighting.level === level)
+				return Client.entities[i];
+		}
+	}
+
 	function _dropEntity(e, start_point, grid) {
 		var center = e.components.center,
 			box = e.components.box;
@@ -201,7 +219,8 @@ define(['shared/game/physics'], function(Physics) {
 				x: (e.body.x - grid.body.x) + start_point.body.x,
 				y: (e.body.y - grid.body.y) + start_point.body.y
 			},
-			view: start_point.components.start_point.view
+			view: start_point.components.start_point.view,
+			level: start_point.components.start_point.level
 		};
 
 		e.components.falling.tween = {

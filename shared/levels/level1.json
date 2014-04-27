@@ -19,8 +19,8 @@
             "bounds": {
                 "x": 162,
                 "y": 207,
-                "w": 48,
-                "h": 48
+                "w": 56,
+                "h": 56
             }
         },
         "components": {
@@ -37,6 +37,10 @@
             "box": {
                 "color": "green",
                 "level": 1
+            },
+            "direction": {
+                "x": 1,
+                "y": 1
             },
             "player": true,
             "physical": true,
@@ -204,7 +208,7 @@
             },
             "hurts_player": {
                 "damage": 1,
-                "pushback": 64
+                "pushback": 48
             },
             "box": {
                 "color": "purple",
@@ -570,8 +574,8 @@
             "bounds": {
                 "x": 1525,
                 "y": 159,
-                "w": 32,
-                "h": 32
+                "w": 48,
+                "h": 48
             }
         },
         "components": {
@@ -584,7 +588,7 @@
             },
             "hurts_player": {
                 "damage": 1,
-                "pushback": 64
+                "pushback": 48
             },
             "box": {
                 "color": "purple",
@@ -615,8 +619,8 @@
             "bounds": {
                 "x": 1500,
                 "y": 400,
-                "w": 32,
-                "h": 32
+                "w": 48,
+                "h": 48
             }
         },
         "components": {
@@ -629,7 +633,7 @@
             },
             "hurts_player": {
                 "damage": 1,
-                "pushback": 64
+                "pushback": 48
             },
             "box": {
                 "color": "purple",
@@ -660,8 +664,8 @@
             "bounds": {
                 "x": 1210,
                 "y": 338,
-                "w": 32,
-                "h": 32
+                "w": 48,
+                "h": 48
             }
         },
         "components": {
@@ -674,7 +678,7 @@
             },
             "hurts_player": {
                 "damage": 1,
-                "pushback": 64
+                "pushback": 48
             },
             "box": {
                 "color": "purple",
@@ -765,14 +769,347 @@
             "bounds": {
                 "x": 1066,
                 "y": 58,
-                "w": 656,
-                "h": 544
+                "w": 336,
+                "h": 272
             }
         },
         "components": {
             "dig_grid": {
-                "width": 41,
-                "height": 34,
+                "width": 21,
+                "height": 17,
+                "node_size": {
+                    "w": 16,
+                    "h": 16
+                },
+                "map": [],
+                "level": 2,
+                "holes": 0
+            }
+        },
+        "hits": []
+    },
+    {
+        "body": {
+            "x": 1751,
+            "y": 0,
+            "type": "static",
+            "maxVel": {
+                "x": 0,
+                "y": 0
+            },
+            "accel": {
+                "x": 0,
+                "y": 0
+            },
+            "bounds": {
+                "x": 2000,
+                "y": 0,
+                "w": 48,
+                "h": 300
+            }
+        },
+        "components": {
+            "collision_map": true,
+            "box": {
+                "color": "gray",
+                "level": 3
+            }
+        },
+        "hits": []
+    },
+    {
+        "body": {
+            "x": 2056,
+            "y": 0,
+            "type": "static",
+            "maxVel": {
+                "x": 0,
+                "y": 0
+            },
+            "accel": {
+                "x": 0,
+                "y": 0
+            },
+            "bounds": {
+                "x": 2000,
+                "y": 0,
+                "w": 48,
+                "h": 300
+            }
+        },
+        "components": {
+            "collision_map": true,
+            "box": {
+                "color": "gray",
+                "level": 3
+            }
+        },
+        "hits": []
+    },
+    {
+        "body": {
+            "x": 1798,
+            "y": 0,
+            "type": "static",
+            "maxVel": {
+                "x": 0,
+                "y": 0
+            },
+            "accel": {
+                "x": 0,
+                "y": 0
+            },
+            "bounds": {
+                "x": 2000,
+                "y": 0,
+                "w": 257,
+                "h": 48
+            }
+        },
+        "components": {
+            "collision_map": true,
+            "box": {
+                "color": "gray",
+                "level": 3
+            }
+        },
+        "hits": []
+    },
+    {
+        "body": {
+            "x": 1798,
+            "y": 252,
+            "type": "static",
+            "maxVel": {
+                "x": 0,
+                "y": 0
+            },
+            "accel": {
+                "x": 0,
+                "y": 0
+            },
+            "bounds": {
+                "x": 2048,
+                "y": 0,
+                "w": 257,
+                "h": 48
+            }
+        },
+        "components": {
+            "collision_map": true,
+            "box": {
+                "color": "gray",
+                "level": 3
+            }
+        },
+        "hits": []
+    },
+    {
+        "body": {
+            "x": 1802,
+            "y": 53,
+            "type": "none",
+            "maxVel": {
+                "x": 0,
+                "y": 0
+            },
+            "accel": {
+                "x": 0,
+                "y": 0
+            },
+            "bounds": {
+                "w": 0,
+                "h": 0
+            }
+        },
+        "components": {
+            "start_point": {
+                "level": 3,
+                "view": {
+                    "x": 1700,
+                    "y": 0,
+                    "width": 2800,
+                    "height": 650
+                }
+            }
+        },
+        "hits": []
+    },
+    {
+        "body": {
+            "x": 2103,
+            "y": 300,
+            "type": "static",
+            "maxVel": {
+                "x": 0,
+                "y": 0
+            },
+            "accel": {
+                "x": 0,
+                "y": 0
+            },
+            "bounds": {
+                "x": 2056,
+                "y": 300,
+                "w": 257,
+                "h": 48
+            }
+        },
+        "components": {
+            "collision_map": true,
+            "box": {
+                "color": "gray",
+                "level": 3
+            }
+        },
+        "hits": []
+    },
+    {
+        "body": {
+            "x": 2056,
+            "y": 300,
+            "type": "static",
+            "maxVel": {
+                "x": 0,
+                "y": 0
+            },
+            "accel": {
+                "x": 0,
+                "y": 0
+            },
+            "bounds": {
+                "x": 2056,
+                "y": 300,
+                "w": 48,
+                "h": 300
+            }
+        },
+        "components": {
+            "collision_map": true,
+            "box": {
+                "color": "gray",
+                "level": 3
+            }
+        },
+        "hits": []
+    },
+    {
+        "body": {
+            "x": 2360,
+            "y": 300,
+            "type": "static",
+            "maxVel": {
+                "x": 0,
+                "y": 0
+            },
+            "accel": {
+                "x": 0,
+                "y": 0
+            },
+            "bounds": {
+                "x": 2303,
+                "y": 300,
+                "w": 48,
+                "h": 300
+            }
+        },
+        "components": {
+            "collision_map": true,
+            "box": {
+                "color": "gray",
+                "level": 3
+            }
+        },
+        "hits": []
+    },
+    {
+        "body": {
+            "x": 2104,
+            "y": 552,
+            "type": "static",
+            "maxVel": {
+                "x": 0,
+                "y": 0
+            },
+            "accel": {
+                "x": 0,
+                "y": 0
+            },
+            "bounds": {
+                "x": 2056,
+                "y": 600,
+                "w": 257,
+                "h": 48
+            }
+        },
+        "components": {
+            "collision_map": true,
+            "box": {
+                "color": "gray",
+                "level": 3
+            }
+        },
+        "hits": []
+    },
+    {
+        "body": {
+            "x": 1732,
+            "y": -21,
+            "type": "static",
+            "maxVel": {
+                "x": 0,
+                "y": 0
+            },
+            "accel": {
+                "x": 0,
+                "y": 0
+            },
+            "bounds": {
+                "x": 1800,
+                "y": 0,
+                "w": 704,
+                "h": 640
+            }
+        },
+        "components": {
+            "lighting": {
+                "width": 22,
+                "height": 20,
+                "node_size": {
+                    "w": 32,
+                    "h": 32
+                },
+                "map": [],
+                "dimness": 0.95,
+                "level": 3
+            }
+        },
+        "hits": []
+    },
+    {
+        "body": {
+            "x": 1400,
+            "y": 328,
+            "type": "static",
+            "maxVel": {
+                "x": 0,
+                "y": 0
+            },
+            "accel": {
+                "x": 0,
+                "y": 0
+            },
+            "bounds": {
+                "x": 1066,
+                "y": 600,
+                "w": 320,
+                "h": 272
+            }
+        },
+        "components": {
+            "dig_grid": {
+                "width": 20,
+                "height": 17,
                 "node_size": {
                     "w": 16,
                     "h": 16

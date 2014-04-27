@@ -88,27 +88,21 @@ function(Graphics, Physics, Input, Level) {
 		context.scale(scale, scale);
 		context.translate(-Graphics.offset.x, -Graphics.offset.y);
 
-		// if (c.level === Level.level) {
-			for(i = 0; i < length; i++) {
-				context.globalAlpha = c.map[i] ? c.map[i] : c.dimness;
-				context.fillRect(e.body.x + xOffset,
-					e.body.y + yOffset,
-					c.node_size.w,
-					c.node_size.h
-				);
+		for(i = 0; i < length; i++) {
+			context.globalAlpha = c.map[i] ? c.map[i] : c.dimness;
+			context.fillRect(e.body.x + xOffset,
+				e.body.y + yOffset,
+				c.node_size.w,
+				c.node_size.h
+			);
 
-				if ((i + 1) % c.width === 0) {
-					xOffset = 0;
-					yOffset += c.node_size.h;
-				}
-				else
-					xOffset += c.node_size.w;
+			if ((i + 1) % c.width === 0) {
+				xOffset = 0;
+				yOffset += c.node_size.h;
 			}
-		// }
-		// else {
-		// 	context.globalAlpha = c.dimness / 2;
-		// 	context.fillRect(e.body.x, e.body.y, e.body.bounds.w, e.body.bounds.h);
-		// }
+			else
+				xOffset += c.node_size.w;
+		}
 
 		context.restore();
 	};
