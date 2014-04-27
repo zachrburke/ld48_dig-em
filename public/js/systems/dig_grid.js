@@ -23,7 +23,7 @@ define(['shared/game/physics'], function(Physics) {
 
 			if(_willFallInGap(e, dig_grid, grid)) {
 				var start_point = _findStartPoint(dig_grid.level + 1);
-				_dropEntity(e, start_point);
+				_dropEntity(e, start_point, grid);
 			}
 		}	
 	};
@@ -44,8 +44,10 @@ define(['shared/game/physics'], function(Physics) {
 			e.components.falls = true;
 			delete e.components.falling;
 
-			if (box)
+			if (box) {
 				box.alpha = 1.0;
+				box.level++;
+			}
 
 			if (center) {
 				center.view = c.view;
@@ -153,7 +155,6 @@ define(['shared/game/physics'], function(Physics) {
 
 			if (dig_grid.map[i]) {
 				lighting.map[index] = 0.1;
-				console.log('(', x, y, ')', 'index', index);
 			}
 
 			if ((i + 1) % dig_grid.width === 0) {
@@ -162,8 +163,6 @@ define(['shared/game/physics'], function(Physics) {
 			}
 			else
 				xOffset += dig_grid.node_size.w;
-
-			
 		}
 		
 	}
@@ -178,7 +177,7 @@ define(['shared/game/physics'], function(Physics) {
 		}
 	}
 
-	function _dropEntity(e, start_point) {
+	function _dropEntity(e, start_point, grid) {
 		var center = e.components.center,
 			box = e.components.box;
 
@@ -186,8 +185,8 @@ define(['shared/game/physics'], function(Physics) {
 			interval: 500,
 			elapsed: 0,
 			new_pos: {
-				x: e.body.x + start_point.body.x,
-				y: e.body.y + start_point.body.y
+				x: (e.body.x - grid.body.x) + start_point.body.x,
+				y: (e.body.y - grid.body.y) + start_point.body.y
 			},
 			view: start_point.components.start_point.view
 		};
@@ -210,7 +209,7 @@ define(['shared/game/physics'], function(Physics) {
 			lighting = Client.entities[i].components.lighting;
 			body = Client.entities[i].body;
 
-			if (lighting) {
+			if (lighting && lighting.level === level) {
 				var start_point = _findStartPoint(level);
 				lighting.dimness = (1 - coverage);
 				_updateLightmap(lighting, body, gridComp, start_point.body);

@@ -1,0 +1,3 @@
+define({
+	level: 1
+});

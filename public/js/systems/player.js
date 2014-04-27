@@ -1,4 +1,7 @@
-define(['shared/game/physics', 'game/graphics'], function(Physics, Graphics) {
+define(['shared/game/physics', 
+		'game/graphics',
+		'data/level'], 
+function(Physics, Graphics, Level) {
 	var Systems = {};
 
 	Systems.player_controlled = function(e, c) {
@@ -28,6 +31,13 @@ define(['shared/game/physics', 'game/graphics'], function(Physics, Graphics) {
 		if (health <= 0) {
 			e.Kill();
 		}
+	};
+
+	Systems.player = function(e, c) {
+		var box = e.components.box;
+
+		if (box) 
+			Level.level = box.level;
 	};
 
 	Systems.stun = function(e, c) {
@@ -67,6 +77,17 @@ define(['shared/game/physics', 'game/graphics'], function(Physics, Graphics) {
 		if (Graphics.offset.y + Graphics.canvas.height > c.view.height) 
 			Graphics.offset.y = c.view.height - Graphics.canvas.height;
 
+	};
+
+	Systems.lights_up = function(e, c) {
+		var torch = e.Touches('torch')[0],
+			lighting = e.Touches('lighting')[0];
+
+		if (torch && lighting) {
+			torch.entity.Kill();
+
+			lighting.entity.components.lighting.dimness -= 0.4;
+		}
 	};
 
 

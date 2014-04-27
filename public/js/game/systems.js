@@ -1,13 +1,14 @@
 define(['game/graphics', 
 		'shared/game/physics',
 		'game/input',
+		'data/level',
 		'systems/ai',
 		'systems/player',
 		'systems/dig_grid'], 
-function(Graphics, Physics, Input) {
+function(Graphics, Physics, Input, Level) {
 	var Systems = {};
 
-	for (var i = 3; i < 6; i++) {
+	for (var i = 4; i < 7; i++) {
 		var arg = arguments[i];
 
 		for(var key in arg) {
@@ -21,6 +22,7 @@ function(Graphics, Physics, Input) {
 			context = Graphics.context;
 
 		context.save();
+		context.scale(Level.level / c.level, Level.level / c.level);
 		context.fillStyle = c.color;
 		context.translate(-offset.x, -offset.y);
 
