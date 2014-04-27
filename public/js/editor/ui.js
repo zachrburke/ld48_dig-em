@@ -66,6 +66,7 @@ define(['game/client', 'editor/mvc', 'shim/template'], function(Client, MVC) {
 				x: this.controllers.bodyNew.model.x,
 				y: this.controllers.bodyNew.model.y,
 				type: this.controllers.bodyNew.model.type,
+				vel: { x: 0, y: 0 },
 				maxVel: {
 					x: this.controllers.bodyNew.model.maxVelX,
 					y: this.controllers.bodyNew.model.maxVelY

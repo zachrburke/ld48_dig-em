@@ -34,14 +34,18 @@
             "dig": {
                 "command": "E"
             },
-            "box": {
-                "color": "green",
-                "level": 1
-            },
             "direction": {
                 "x": 1,
                 "y": 1
             },
+            "sprite": {
+                "name": "dickle",
+                "anim": "moving",
+                "elapsed": 0,
+                "index": 0,
+                "level": 1
+            },
+            "burns": true,
             "player": true,
             "physical": true,
             "health": 5,
@@ -60,7 +64,7 @@
     },
     {
         "body": {
-            "x": 16,
+            "x": 17,
             "y": 128,
             "type": "static",
             "maxVel": {
@@ -72,16 +76,16 @@
                 "y": 0
             },
             "bounds": {
-                "x": 16,
+                "x": 17,
                 "y": 128,
                 "w": 48,
-                "h": 400
+                "h": 384
             }
         },
         "components": {
             "collision_map": true,
-            "box": {
-                "color": "gray",
+            "pattern": {
+                "name": "walls",
                 "level": 1
             }
         },
@@ -89,7 +93,7 @@
     },
     {
         "body": {
-            "x": 734,
+            "x": 736,
             "y": 128,
             "type": "static",
             "maxVel": {
@@ -101,16 +105,16 @@
                 "y": 0
             },
             "bounds": {
-                "x": 734,
+                "x": 736,
                 "y": 128,
                 "w": 48,
-                "h": 400
+                "h": 384
             }
         },
         "components": {
             "collision_map": true,
-            "box": {
-                "color": "gray",
+            "pattern": {
+                "name": "walls",
                 "level": 1
             }
         },
@@ -118,7 +122,7 @@
     },
     {
         "body": {
-            "x": 64,
+            "x": 65,
             "y": 128,
             "type": "static",
             "maxVel": {
@@ -130,7 +134,7 @@
                 "y": 0
             },
             "bounds": {
-                "x": 64,
+                "x": 65,
                 "y": 128,
                 "w": 670,
                 "h": 48
@@ -138,8 +142,8 @@
         },
         "components": {
             "collision_map": true,
-            "box": {
-                "color": "gray",
+            "pattern": {
+                "name": "walls",
                 "level": 1
             }
         },
@@ -147,8 +151,8 @@
     },
     {
         "body": {
-            "x": 64,
-            "y": 480,
+            "x": 65,
+            "y": 464,
             "type": "static",
             "maxVel": {
                 "x": 0,
@@ -159,16 +163,16 @@
                 "y": 0
             },
             "bounds": {
-                "x": 64,
-                "y": 480,
+                "x": 65,
+                "y": 464,
                 "w": 670,
                 "h": 48
             }
         },
         "components": {
             "collision_map": true,
-            "box": {
-                "color": "gray",
+            "pattern": {
+                "name": "walls",
                 "level": 1
             }
         },
@@ -200,8 +204,8 @@
         },
         "components": {
             "ai_controlled": {
-                "speed": 0.5,
-                "interval": 500,
+                "speed": 0.2,
+                "interval": 250,
                 "elapsed": 0,
                 "step_size": 64,
                 "target": "player"
@@ -210,10 +214,14 @@
                 "damage": 1,
                 "pushback": 48
             },
-            "box": {
-                "color": "purple",
+            "sprite": {
+                "name": "spickle",
+                "anim": "moving",
+                "elapsed": 0,
+                "index": 0,
                 "level": 1
             },
+            "burns": true,
             "physical": true,
             "falls": true
         },
@@ -236,20 +244,75 @@
                 "x": 54,
                 "y": 169,
                 "w": 688,
-                "h": 480
+                "h": 304
             }
         },
         "components": {
             "dig_grid": {
                 "width": 43,
-                "height": 20,
+                "height": 19,
                 "node_size": {
                     "w": 16,
                     "h": 16
                 },
                 "map": [],
                 "level": 1,
-                "holes": 0
+                "holes": 0,
+                "tile": "dirt",
+                "pattern": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    2,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    2,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1,
+                    0,
+                    0,
+                    0,
+                    2,
+                    0,
+                    1,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    2,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1
+                ]
             }
         },
         "hits": []
@@ -291,8 +354,8 @@
     },
     {
         "body": {
-            "x": 1008,
-            "y": 129,
+            "x": 1040,
+            "y": 112,
             "type": "static",
             "maxVel": {
                 "x": 0,
@@ -303,15 +366,15 @@
                 "y": 0
             },
             "bounds": {
-                "x": 1008,
-                "y": 129,
-                "w": 64,
-                "h": 400
+                "x": 1040,
+                "y": 112,
+                "w": 48,
+                "h": 384
             }
         },
         "components": {
-            "box": {
-                "color": "gray",
+            "pattern": {
+                "name": "walls",
                 "level": 2
             },
             "collision_map": true
@@ -320,8 +383,8 @@
     },
     {
         "body": {
-            "x": 1716,
-            "y": 128,
+            "x": 1690,
+            "y": 112,
             "type": "static",
             "maxVel": {
                 "x": 0,
@@ -332,15 +395,15 @@
                 "y": 0
             },
             "bounds": {
-                "x": 1716,
-                "y": 128,
-                "w": 64,
-                "h": 400
+                "x": 1690,
+                "y": 112,
+                "w": 48,
+                "h": 384
             }
         },
         "components": {
-            "box": {
-                "color": "gray",
+            "pattern": {
+                "name": "walls",
                 "level": 2
             },
             "collision_map": true
@@ -349,7 +412,7 @@
     },
     {
         "body": {
-            "x": 1072,
+            "x": 1088,
             "y": 64,
             "type": "static",
             "maxVel": {
@@ -361,15 +424,15 @@
                 "y": 0
             },
             "bounds": {
-                "x": 1072,
+                "x": 1088,
                 "y": 64,
-                "w": 64,
-                "h": 64
+                "w": 48,
+                "h": 48
             }
         },
         "components": {
-            "box": {
-                "color": "gray",
+            "pattern": {
+                "name": "walls",
                 "level": 2
             },
             "collision_map": true
@@ -378,8 +441,8 @@
     },
     {
         "body": {
-            "x": 1074,
-            "y": 528,
+            "x": 1088,
+            "y": 496,
             "type": "static",
             "maxVel": {
                 "x": 0,
@@ -390,15 +453,15 @@
                 "y": 0
             },
             "bounds": {
-                "x": 1074,
-                "y": 528,
-                "w": 64,
-                "h": 64
+                "x": 1088,
+                "y": 496,
+                "w": 48,
+                "h": 48
             }
         },
         "components": {
-            "box": {
-                "color": "gray",
+            "pattern": {
+                "name": "walls",
                 "level": 2
             },
             "collision_map": true
@@ -407,7 +470,7 @@
     },
     {
         "body": {
-            "x": 1650,
+            "x": 1642,
             "y": 64,
             "type": "static",
             "maxVel": {
@@ -419,15 +482,15 @@
                 "y": 0
             },
             "bounds": {
-                "x": 1650,
+                "x": 1642,
                 "y": 64,
-                "w": 64,
-                "h": 64
+                "w": 48,
+                "h": 48
             }
         },
         "components": {
-            "box": {
-                "color": "gray",
+            "pattern": {
+                "name": "walls",
                 "level": 2
             },
             "collision_map": true
@@ -436,8 +499,8 @@
     },
     {
         "body": {
-            "x": 1650,
-            "y": 528,
+            "x": 1642,
+            "y": 496,
             "type": "static",
             "maxVel": {
                 "x": 0,
@@ -448,15 +511,15 @@
                 "y": 0
             },
             "bounds": {
-                "x": 1650,
-                "y": 528,
-                "w": 64,
-                "h": 64
+                "x": 1642,
+                "y": 496,
+                "w": 48,
+                "h": 48
             }
         },
         "components": {
-            "box": {
-                "color": "gray",
+            "pattern": {
+                "name": "walls",
                 "level": 2
             },
             "collision_map": true
@@ -466,7 +529,7 @@
     {
         "body": {
             "x": 1138,
-            "y": -1,
+            "y": 16,
             "type": "static",
             "maxVel": {
                 "x": 0,
@@ -478,14 +541,14 @@
             },
             "bounds": {
                 "x": 1138,
-                "y": -1,
-                "w": 512,
-                "h": 64
+                "y": 16,
+                "w": 504,
+                "h": 48
             }
         },
         "components": {
-            "box": {
-                "color": "gray",
+            "pattern": {
+                "name": "walls",
                 "level": 2
             },
             "collision_map": true
@@ -495,7 +558,7 @@
     {
         "body": {
             "x": 1138,
-            "y": 592,
+            "y": 543,
             "type": "static",
             "maxVel": {
                 "x": 0,
@@ -507,14 +570,14 @@
             },
             "bounds": {
                 "x": 1138,
-                "y": 592,
-                "w": 512,
-                "h": 64
+                "y": 543,
+                "w": 504,
+                "h": 48
             }
         },
         "components": {
-            "box": {
-                "color": "gray",
+            "pattern": {
+                "name": "walls",
                 "level": 2
             },
             "collision_map": true
@@ -590,10 +653,14 @@
                 "damage": 1,
                 "pushback": 48
             },
-            "box": {
-                "color": "purple",
+            "sprite": {
+                "name": "spickle",
+                "anim": "moving",
+                "elapsed": 0,
+                "index": 0,
                 "level": 2
             },
+            "burns": true,
             "physical": true,
             "falls": true
         },
@@ -635,8 +702,11 @@
                 "damage": 1,
                 "pushback": 48
             },
-            "box": {
-                "color": "purple",
+            "sprite": {
+                "name": "spickle",
+                "anim": "moving",
+                "elapsed": 0,
+                "index": 0,
                 "level": 2
             },
             "physical": true,
@@ -680,8 +750,11 @@
                 "damage": 1,
                 "pushback": 48
             },
-            "box": {
-                "color": "purple",
+            "sprite": {
+                "name": "spickle",
+                "anim": "moving",
+                "elapsed": 0,
+                "index": 0,
                 "level": 2
             },
             "physical": true,
@@ -691,7 +764,7 @@
     },
     {
         "body": {
-            "x": 1357,
+            "x": 1356,
             "y": 361,
             "type": "static",
             "maxVel": {
@@ -703,7 +776,7 @@
                 "y": 0
             },
             "bounds": {
-                "x": 1357,
+                "x": 1356,
                 "y": 361,
                 "w": 32,
                 "h": 32
@@ -711,8 +784,11 @@
         },
         "components": {
             "torch": true,
-            "box": {
-                "color": "orange",
+            "sprite": {
+                "name": "light",
+                "anim": "idle",
+                "elapsed": 0,
+                "index": 0,
                 "level": 2
             }
         },
@@ -755,8 +831,8 @@
     },
     {
         "body": {
-            "x": 1066,
-            "y": 58,
+            "x": 1088,
+            "y": 65,
             "type": "static",
             "maxVel": {
                 "x": 0,
@@ -767,23 +843,187 @@
                 "y": 0
             },
             "bounds": {
-                "x": 1066,
-                "y": 58,
-                "w": 336,
-                "h": 272
+                "x": 1088,
+                "y": 65,
+                "w": 304,
+                "h": 256
             }
         },
         "components": {
             "dig_grid": {
-                "width": 21,
-                "height": 17,
+                "width": 19,
+                "height": 16,
                 "node_size": {
                     "w": 16,
                     "h": 16
                 },
                 "map": [],
                 "level": 2,
-                "holes": 0
+                "holes": 0,
+                "tile": "dirt",
+                "pattern": [
+                    0,
+                    0,
+                    1,
+                    0,
+                    1,
+                    1,
+                    0,
+                    0,
+                    1,
+                    1,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            }
+        },
+        "hits": []
+    },
+    {
+        "body": {
+            "x": 1386,
+            "y": 304,
+            "type": "static",
+            "maxVel": {
+                "x": 0,
+                "y": 0
+            },
+            "accel": {
+                "x": 0,
+                "y": 0
+            },
+            "bounds": {
+                "x": 1386,
+                "y": 304,
+                "w": 304,
+                "h": 240
+            }
+        },
+        "components": {
+            "dig_grid": {
+                "width": 19,
+                "height": 15,
+                "node_size": {
+                    "w": 16,
+                    "h": 16
+                },
+                "map": [],
+                "level": 2,
+                "holes": 0,
+                "tile": "dirt",
+                "pattern": [
+                    0,
+                    0,
+                    1,
+                    0,
+                    1,
+                    1,
+                    0,
+                    0,
+                    1,
+                    1,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            }
+        },
+        "hits": []
+    },
+    {
+        "body": {
+            "x": 1404,
+            "y": 162,
+            "type": "static",
+            "maxVel": {
+                "x": 0,
+                "y": 0
+            },
+            "accel": {
+                "x": 0,
+                "y": 0
+            },
+            "bounds": {
+                "x": 1404,
+                "y": 162,
+                "w": 72,
+                "h": 72
+            }
+        },
+        "components": {
+            "lava": {
+                "name": "lava",
+                "anim": "idle",
+                "elapsed": 0,
+                "index": 0,
+                "width": 3,
+                "height": 3,
+                "node_size": {
+                    "w": 24,
+                    "h": 24
+                },
+                "level": 2
+            }
+        },
+        "hits": []
+    },
+    {
+        "body": {
+            "x": 1388,
+            "y": 64,
+            "type": "static",
+            "maxVel": {
+                "x": 0,
+                "y": 0
+            },
+            "accel": {
+                "x": 0,
+                "y": 0
+            },
+            "bounds": {
+                "x": 1388,
+                "y": 64,
+                "w": 302,
+                "h": 241
+            }
+        },
+        "components": {
+            "box": {
+                "color": "rgb(128,70,0)",
+                "level": 2
+            }
+        },
+        "hits": []
+    },
+    {
+        "body": {
+            "x": 1087,
+            "y": 311,
+            "type": "static",
+            "maxVel": {
+                "x": 0,
+                "y": 0
+            },
+            "accel": {
+                "x": 0,
+                "y": 0
+            },
+            "bounds": {
+                "x": 1087,
+                "y": 311,
+                "w": 299,
+                "h": 234
+            }
+        },
+        "components": {
+            "box": {
+                "color": "rgb(128,70,0)",
+                "level": 2
             }
         },
         "hits": []
@@ -802,16 +1042,16 @@
                 "y": 0
             },
             "bounds": {
-                "x": 2000,
+                "x": 1751,
                 "y": 0,
                 "w": 48,
-                "h": 300
+                "h": 288
             }
         },
         "components": {
             "collision_map": true,
-            "box": {
-                "color": "gray",
+            "pattern": {
+                "name": "walls",
                 "level": 3
             }
         },
@@ -819,7 +1059,7 @@
     },
     {
         "body": {
-            "x": 2056,
+            "x": 2158,
             "y": 0,
             "type": "static",
             "maxVel": {
@@ -831,16 +1071,16 @@
                 "y": 0
             },
             "bounds": {
-                "x": 2000,
+                "x": 2158,
                 "y": 0,
                 "w": 48,
-                "h": 300
+                "h": 288
             }
         },
         "components": {
             "collision_map": true,
-            "box": {
-                "color": "gray",
+            "pattern": {
+                "name": "walls",
                 "level": 3
             }
         },
@@ -860,16 +1100,16 @@
                 "y": 0
             },
             "bounds": {
-                "x": 2000,
+                "x": 1798,
                 "y": 0,
-                "w": 257,
+                "w": 360,
                 "h": 48
             }
         },
         "components": {
             "collision_map": true,
-            "box": {
-                "color": "gray",
+            "pattern": {
+                "name": "walls",
                 "level": 3
             }
         },
@@ -878,7 +1118,7 @@
     {
         "body": {
             "x": 1798,
-            "y": 252,
+            "y": 240,
             "type": "static",
             "maxVel": {
                 "x": 0,
@@ -889,16 +1129,16 @@
                 "y": 0
             },
             "bounds": {
-                "x": 2048,
-                "y": 0,
-                "w": 257,
+                "x": 1798,
+                "y": 240,
+                "w": 360,
                 "h": 48
             }
         },
         "components": {
             "collision_map": true,
-            "box": {
-                "color": "gray",
+            "pattern": {
+                "name": "walls",
                 "level": 3
             }
         },
@@ -918,6 +1158,8 @@
                 "y": 0
             },
             "bounds": {
+                "x": 1802,
+                "y": 53,
                 "w": 0,
                 "h": 0
             }
@@ -937,7 +1179,7 @@
     },
     {
         "body": {
-            "x": 2103,
+            "x": 1994,
             "y": 300,
             "type": "static",
             "maxVel": {
@@ -949,16 +1191,16 @@
                 "y": 0
             },
             "bounds": {
-                "x": 2056,
+                "x": 1994,
                 "y": 300,
-                "w": 257,
+                "w": 360,
                 "h": 48
             }
         },
         "components": {
             "collision_map": true,
-            "box": {
-                "color": "gray",
+            "pattern": {
+                "name": "walls",
                 "level": 3
             }
         },
@@ -966,7 +1208,7 @@
     },
     {
         "body": {
-            "x": 2056,
+            "x": 1946,
             "y": 300,
             "type": "static",
             "maxVel": {
@@ -978,16 +1220,16 @@
                 "y": 0
             },
             "bounds": {
-                "x": 2056,
+                "x": 1946,
                 "y": 300,
                 "w": 48,
-                "h": 300
+                "h": 288
             }
         },
         "components": {
             "collision_map": true,
-            "box": {
-                "color": "gray",
+            "pattern": {
+                "name": "walls",
                 "level": 3
             }
         },
@@ -995,7 +1237,7 @@
     },
     {
         "body": {
-            "x": 2360,
+            "x": 2354,
             "y": 300,
             "type": "static",
             "maxVel": {
@@ -1007,16 +1249,16 @@
                 "y": 0
             },
             "bounds": {
-                "x": 2303,
+                "x": 2354,
                 "y": 300,
                 "w": 48,
-                "h": 300
+                "h": 288
             }
         },
         "components": {
             "collision_map": true,
-            "box": {
-                "color": "gray",
+            "pattern": {
+                "name": "walls",
                 "level": 3
             }
         },
@@ -1024,8 +1266,8 @@
     },
     {
         "body": {
-            "x": 2104,
-            "y": 552,
+            "x": 1994,
+            "y": 540,
             "type": "static",
             "maxVel": {
                 "x": 0,
@@ -1036,16 +1278,16 @@
                 "y": 0
             },
             "bounds": {
-                "x": 2056,
-                "y": 600,
-                "w": 257,
+                "x": 1994,
+                "y": 540,
+                "w": 360,
                 "h": 48
             }
         },
         "components": {
             "collision_map": true,
-            "box": {
-                "color": "gray",
+            "pattern": {
+                "name": "walls",
                 "level": 3
             }
         },
@@ -1065,8 +1307,8 @@
                 "y": 0
             },
             "bounds": {
-                "x": 1800,
-                "y": 0,
+                "x": 1732,
+                "y": -21,
                 "w": 704,
                 "h": 640
             }
@@ -1088,8 +1330,8 @@
     },
     {
         "body": {
-            "x": 1400,
-            "y": 328,
+            "x": 2280,
+            "y": 349,
             "type": "static",
             "maxVel": {
                 "x": 0,
@@ -1100,23 +1342,1572 @@
                 "y": 0
             },
             "bounds": {
-                "x": 1066,
-                "y": 600,
-                "w": 320,
-                "h": 272
+                "x": 2280,
+                "y": 349,
+                "w": 72,
+                "h": 72
+            }
+        },
+        "components": {
+            "lava": {
+                "name": "lava",
+                "anim": "idle",
+                "elapsed": 0,
+                "index": 0,
+                "width": 3,
+                "height": 3,
+                "node_size": {
+                    "w": 24,
+                    "h": 24
+                },
+                "level": 3
+            }
+        },
+        "hits": []
+    },
+    {
+        "body": {
+            "x": 1994,
+            "y": 468,
+            "type": "static",
+            "maxVel": {
+                "x": 0,
+                "y": 0
+            },
+            "accel": {
+                "x": 0,
+                "y": 0
+            },
+            "bounds": {
+                "x": 1994,
+                "y": 468,
+                "w": 72,
+                "h": 72
+            }
+        },
+        "components": {
+            "lava": {
+                "name": "lava",
+                "anim": "idle",
+                "elapsed": 0,
+                "index": 0,
+                "width": 3,
+                "height": 3,
+                "node_size": {
+                    "w": 24,
+                    "h": 24
+                },
+                "level": 3
+            }
+        },
+        "hits": []
+    },
+    {
+        "body": {
+            "x": 2076,
+            "y": 378,
+            "type": "static",
+            "maxVel": {
+                "x": 0,
+                "y": 0
+            },
+            "accel": {
+                "x": 0,
+                "y": 0
+            },
+            "bounds": {
+                "x": 2076,
+                "y": 378,
+                "w": 32,
+                "h": 32
+            }
+        },
+        "components": {
+            "torch": true,
+            "sprite": {
+                "name": "light",
+                "anim": "idle",
+                "elapsed": 0,
+                "index": 0,
+                "level": 3
+            }
+        },
+        "hits": []
+    },
+    {
+        "body": {
+            "x": 1992,
+            "y": 341,
+            "type": "static",
+            "maxVel": {
+                "x": 0,
+                "y": 0
+            },
+            "accel": {
+                "x": 0,
+                "y": 0
+            },
+            "bounds": {
+                "x": 1992,
+                "y": 341,
+                "w": 368,
+                "h": 208
             }
         },
         "components": {
             "dig_grid": {
-                "width": 20,
-                "height": 17,
+                "width": 23,
+                "height": 13,
                 "node_size": {
                     "w": 16,
                     "h": 16
                 },
                 "map": [],
-                "level": 2,
-                "holes": 0
+                "level": 3,
+                "holes": 0,
+                "tile": "dirt",
+                "pattern": [
+                    0,
+                    0,
+                    1,
+                    0,
+                    1,
+                    1,
+                    0,
+                    0,
+                    1,
+                    1,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            }
+        },
+        "hits": []
+    },
+    {
+        "body": {
+            "x": 1795,
+            "y": 43,
+            "type": "static",
+            "maxVel": {
+                "x": 0,
+                "y": 0
+            },
+            "accel": {
+                "x": 0,
+                "y": 0
+            },
+            "bounds": {
+                "x": 1795,
+                "y": 43,
+                "w": 368,
+                "h": 208
+            }
+        },
+        "components": {
+            "dig_grid": {
+                "width": 23,
+                "height": 13,
+                "node_size": {
+                    "w": 16,
+                    "h": 16
+                },
+                "map": [],
+                "level": 3,
+                "holes": 0,
+                "tile": "dirt",
+                "pattern": [
+                    0,
+                    0,
+                    1,
+                    0,
+                    1,
+                    1,
+                    0,
+                    0,
+                    1,
+                    1,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            }
+        },
+        "hits": []
+    },
+    {
+        "body": {
+            "x": 1783,
+            "y": 589,
+            "type": "static",
+            "maxVel": {
+                "x": 0,
+                "y": 0
+            },
+            "accel": {
+                "x": 0,
+                "y": 0
+            },
+            "bounds": {
+                "x": 1783,
+                "y": 589,
+                "w": 704,
+                "h": 609
+            }
+        },
+        "components": {
+            "lighting": {
+                "width": 22,
+                "height": 19,
+                "node_size": {
+                    "w": 32,
+                    "h": 32
+                },
+                "map": [],
+                "dimness": 0.95,
+                "level": 4
+            }
+        },
+        "hits": []
+    },
+    {
+        "body": {
+            "x": 1800,
+            "y": 600,
+            "type": "static",
+            "maxVel": {
+                "x": 0,
+                "y": 0
+            },
+            "accel": {
+                "x": 0,
+                "y": 0
+            },
+            "bounds": {
+                "x": 1800,
+                "y": 600,
+                "w": 48,
+                "h": 576
+            }
+        },
+        "components": {
+            "collision_map": true,
+            "pattern": {
+                "name": "walls",
+                "level": 4
+            }
+        },
+        "hits": []
+    },
+    {
+        "body": {
+            "x": 1848,
+            "y": 600,
+            "type": "static",
+            "maxVel": {
+                "x": 0,
+                "y": 0
+            },
+            "accel": {
+                "x": 0,
+                "y": 0
+            },
+            "bounds": {
+                "x": 1848,
+                "y": 600,
+                "w": 576,
+                "h": 48
+            }
+        },
+        "components": {
+            "collision_map": true,
+            "pattern": {
+                "name": "walls",
+                "level": 4
+            }
+        },
+        "hits": []
+    },
+    {
+        "body": {
+            "x": 1848,
+            "y": 1128,
+            "type": "static",
+            "maxVel": {
+                "x": 0,
+                "y": 0
+            },
+            "accel": {
+                "x": 0,
+                "y": 0
+            },
+            "bounds": {
+                "x": 1848,
+                "y": 1128,
+                "w": 576,
+                "h": 48
+            }
+        },
+        "components": {
+            "collision_map": true,
+            "pattern": {
+                "name": "walls",
+                "level": 4
+            }
+        },
+        "hits": []
+    },
+    {
+        "body": {
+            "x": 2424,
+            "y": 600,
+            "type": "static",
+            "maxVel": {
+                "x": 0,
+                "y": 0
+            },
+            "accel": {
+                "x": 0,
+                "y": 0
+            },
+            "bounds": {
+                "x": 2424,
+                "y": 600,
+                "w": 48,
+                "h": 576
+            }
+        },
+        "components": {
+            "collision_map": true,
+            "pattern": {
+                "name": "walls",
+                "level": 4
+            }
+        },
+        "hits": []
+    },
+    {
+        "body": {
+            "x": 1961,
+            "y": 728,
+            "type": "static",
+            "maxVel": {
+                "x": 0,
+                "y": 0
+            },
+            "accel": {
+                "x": 0,
+                "y": 0
+            },
+            "bounds": {
+                "x": 1961,
+                "y": 728,
+                "w": 32,
+                "h": 32
+            }
+        },
+        "components": {
+            "torch": true,
+            "sprite": {
+                "name": "light",
+                "anim": "idle",
+                "elapsed": 0,
+                "index": 0,
+                "level": 4
+            }
+        },
+        "hits": []
+    },
+    {
+        "body": {
+            "x": 2256,
+            "y": 646,
+            "type": "static",
+            "maxVel": {
+                "x": 0,
+                "y": 0
+            },
+            "accel": {
+                "x": 0,
+                "y": 0
+            },
+            "bounds": {
+                "x": 2256,
+                "y": 646,
+                "w": 168,
+                "h": 120
+            }
+        },
+        "components": {
+            "lava": {
+                "name": "lava",
+                "anim": "idle",
+                "elapsed": 0,
+                "index": 0,
+                "width": 7,
+                "height": 5,
+                "node_size": {
+                    "w": 24,
+                    "h": 24
+                },
+                "level": 4
+            }
+        },
+        "hits": []
+    },
+    {
+        "body": {
+            "x": 1849,
+            "y": 1008,
+            "type": "static",
+            "maxVel": {
+                "x": 0,
+                "y": 0
+            },
+            "accel": {
+                "x": 0,
+                "y": 0
+            },
+            "bounds": {
+                "x": 1849,
+                "y": 1008,
+                "w": 168,
+                "h": 120
+            }
+        },
+        "components": {
+            "lava": {
+                "name": "lava",
+                "anim": "idle",
+                "elapsed": 0,
+                "index": 0,
+                "width": 7,
+                "height": 5,
+                "node_size": {
+                    "w": 24,
+                    "h": 24
+                },
+                "level": 4
+            }
+        },
+        "hits": []
+    },
+    {
+        "body": {
+            "x": 2305,
+            "y": 1011,
+            "type": "dynamic",
+            "vel": {
+                "x": 0,
+                "y": 0
+            },
+            "maxVel": {
+                "x": 1,
+                "y": 1
+            },
+            "accel": {
+                "x": 0,
+                "y": 0
+            },
+            "bounds": {
+                "x": 2305,
+                "y": 1011,
+                "w": 48,
+                "h": 48
+            }
+        },
+        "components": {
+            "ai_controlled": {
+                "speed": 0.5,
+                "interval": 500,
+                "elapsed": 0,
+                "step_size": 64,
+                "target": "player"
+            },
+            "hurts_player": {
+                "damage": 1,
+                "pushback": 48
+            },
+            "sprite": {
+                "name": "spickle",
+                "anim": "moving",
+                "elapsed": 0,
+                "index": 0,
+                "level": 4
+            },
+            "physical": true,
+            "falls": true
+        },
+        "hits": []
+    },
+    {
+        "body": {
+            "x": 1907,
+            "y": 857,
+            "type": "dynamic",
+            "vel": {
+                "x": 0,
+                "y": 0
+            },
+            "maxVel": {
+                "x": 1,
+                "y": 1
+            },
+            "accel": {
+                "x": 0,
+                "y": 0
+            },
+            "bounds": {
+                "x": 1907,
+                "y": 857,
+                "w": 48,
+                "h": 48
+            }
+        },
+        "components": {
+            "ai_controlled": {
+                "speed": 0.5,
+                "interval": 500,
+                "elapsed": 0,
+                "step_size": 64,
+                "target": "player"
+            },
+            "hurts_player": {
+                "damage": 1,
+                "pushback": 48
+            },
+            "sprite": {
+                "name": "spickle",
+                "anim": "moving",
+                "elapsed": 0,
+                "index": 0,
+                "level": 4
+            },
+            "physical": true,
+            "falls": true
+        },
+        "hits": []
+    },
+    {
+        "body": {
+            "x": 2122,
+            "y": 673,
+            "type": "dynamic",
+            "vel": {
+                "x": 0,
+                "y": 0
+            },
+            "maxVel": {
+                "x": 1,
+                "y": 1
+            },
+            "accel": {
+                "x": 0,
+                "y": 0
+            },
+            "bounds": {
+                "x": 2122,
+                "y": 673,
+                "w": 48,
+                "h": 48
+            }
+        },
+        "components": {
+            "ai_controlled": {
+                "speed": 0.5,
+                "interval": 500,
+                "elapsed": 0,
+                "step_size": 64,
+                "target": "player"
+            },
+            "hurts_player": {
+                "damage": 1,
+                "pushback": 48
+            },
+            "sprite": {
+                "name": "spickle",
+                "anim": "moving",
+                "elapsed": 0,
+                "index": 0,
+                "level": 4
+            },
+            "physical": true,
+            "falls": true
+        },
+        "hits": []
+    },
+    {
+        "body": {
+            "x": 1841,
+            "y": 641,
+            "type": "static",
+            "maxVel": {
+                "x": 0,
+                "y": 0
+            },
+            "accel": {
+                "x": 0,
+                "y": 0
+            },
+            "bounds": {
+                "x": 1841,
+                "y": 641,
+                "w": 592,
+                "h": 496
+            }
+        },
+        "components": {
+            "dig_grid": {
+                "width": 37,
+                "height": 31,
+                "node_size": {
+                    "w": 16,
+                    "h": 16
+                },
+                "map": [],
+                "level": 4,
+                "holes": 0,
+                "tile": "dirt",
+                "pattern": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    2,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1,
+                    0,
+                    2,
+                    0,
+                    0,
+                    0,
+                    1,
+                    2,
+                    2,
+                    2,
+                    2,
+                    0,
+                    1,
+                    0,
+                    0,
+                    1,
+                    2,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            }
+        },
+        "hits": []
+    },
+    {
+        "body": {
+            "x": 1849,
+            "y": 648,
+            "type": 0,
+            "vel": {
+                "x": 0,
+                "y": 0
+            },
+            "maxVel": {
+                "x": 0,
+                "y": 0
+            },
+            "accel": {
+                "x": 0,
+                "y": 0
+            },
+            "bounds": {
+                "x": 1849,
+                "y": 648,
+                "w": 0,
+                "h": 0
+            }
+        },
+        "components": {
+            "start_point": {
+                "level": 4,
+                "view": {
+                    "x": 1780,
+                    "y": 590,
+                    "width": 2500,
+                    "height": 1150
+                }
+            }
+        },
+        "hits": []
+    },
+    {
+        "body": {
+            "x": 1256,
+            "y": 752,
+            "type": "static",
+            "vel": {
+                "x": 0,
+                "y": 0
+            },
+            "maxVel": {
+                "x": 0,
+                "y": 0
+            },
+            "accel": {
+                "x": 0,
+                "y": 0
+            },
+            "bounds": {
+                "x": 1256,
+                "y": 752,
+                "w": 576,
+                "h": 48
+            }
+        },
+        "components": {
+            "collision_map": true,
+            "pattern": {
+                "name": "walls",
+                "level": 5
+            }
+        },
+        "hits": []
+    },
+    {
+        "body": {
+            "x": 1208,
+            "y": 752,
+            "type": "static",
+            "vel": {
+                "x": 0,
+                "y": 0
+            },
+            "maxVel": {
+                "x": 0,
+                "y": 0
+            },
+            "accel": {
+                "x": 0,
+                "y": 0
+            },
+            "bounds": {
+                "x": 1208,
+                "y": 752,
+                "w": 48,
+                "h": 576
+            }
+        },
+        "components": {
+            "collision_map": true,
+            "pattern": {
+                "name": "walls",
+                "level": 5
+            }
+        },
+        "hits": []
+    },
+    {
+        "body": {
+            "x": 1833,
+            "y": 752,
+            "type": "static",
+            "vel": {
+                "x": 0,
+                "y": 0
+            },
+            "maxVel": {
+                "x": 0,
+                "y": 0
+            },
+            "accel": {
+                "x": 0,
+                "y": 0
+            },
+            "bounds": {
+                "x": 1833,
+                "y": 752,
+                "w": 48,
+                "h": 576
+            }
+        },
+        "components": {
+            "collision_map": true,
+            "pattern": {
+                "name": "walls",
+                "level": 5
+            }
+        },
+        "hits": []
+    },
+    {
+        "body": {
+            "x": 1256,
+            "y": 1280,
+            "type": "static",
+            "vel": {
+                "x": 0,
+                "y": 0
+            },
+            "maxVel": {
+                "x": 0,
+                "y": 0
+            },
+            "accel": {
+                "x": 0,
+                "y": 0
+            },
+            "bounds": {
+                "x": 1256,
+                "y": 1280,
+                "w": 576,
+                "h": 48
+            }
+        },
+        "components": {
+            "collision_map": true,
+            "pattern": {
+                "name": "walls",
+                "level": 5
+            }
+        },
+        "hits": []
+    },
+    {
+        "body": {
+            "x": 1303,
+            "y": 800,
+            "type": "static",
+            "vel": {
+                "x": 0,
+                "y": 0
+            },
+            "maxVel": {
+                "x": 0,
+                "y": 0
+            },
+            "accel": {
+                "x": 0,
+                "y": 0
+            },
+            "bounds": {
+                "x": 1303,
+                "y": 800,
+                "w": 168,
+                "h": 120
+            }
+        },
+        "components": {
+            "lava": {
+                "name": "lava",
+                "anim": "idle",
+                "elapsed": 0,
+                "index": 0,
+                "width": 7,
+                "height": 5,
+                "node_size": {
+                    "w": 24,
+                    "h": 24
+                },
+                "level": 5
+            }
+        },
+        "hits": []
+    },
+    {
+        "body": {
+            "x": 1665,
+            "y": 1160,
+            "type": "static",
+            "vel": {
+                "x": 0,
+                "y": 0
+            },
+            "maxVel": {
+                "x": 0,
+                "y": 0
+            },
+            "accel": {
+                "x": 0,
+                "y": 0
+            },
+            "bounds": {
+                "x": 1665,
+                "y": 1160,
+                "w": 168,
+                "h": 120
+            }
+        },
+        "components": {
+            "lava": {
+                "name": "lava",
+                "anim": "idle",
+                "elapsed": 0,
+                "index": 0,
+                "width": 7,
+                "height": 5,
+                "node_size": {
+                    "w": 24,
+                    "h": 24
+                },
+                "level": 5
+            }
+        },
+        "hits": []
+    },
+    {
+        "body": {
+            "x": 1290,
+            "y": 1119,
+            "type": "static",
+            "vel": {
+                "x": 0,
+                "y": 0
+            },
+            "maxVel": {
+                "x": 0,
+                "y": 0
+            },
+            "accel": {
+                "x": 0,
+                "y": 0
+            },
+            "bounds": {
+                "x": 1290,
+                "y": 1119,
+                "w": 168,
+                "h": 120
+            }
+        },
+        "components": {
+            "lava": {
+                "name": "lava",
+                "anim": "idle",
+                "elapsed": 0,
+                "index": 0,
+                "width": 7,
+                "height": 5,
+                "node_size": {
+                    "w": 24,
+                    "h": 24
+                },
+                "level": 5
+            }
+        },
+        "hits": []
+    },
+    {
+        "body": {
+            "x": 1634,
+            "y": 836,
+            "type": "static",
+            "vel": {
+                "x": 0,
+                "y": 0
+            },
+            "maxVel": {
+                "x": 0,
+                "y": 0
+            },
+            "accel": {
+                "x": 0,
+                "y": 0
+            },
+            "bounds": {
+                "x": 1634,
+                "y": 836,
+                "w": 168,
+                "h": 120
+            }
+        },
+        "components": {
+            "lava": {
+                "name": "lava",
+                "anim": "idle",
+                "elapsed": 0,
+                "index": 0,
+                "width": 7,
+                "height": 5,
+                "node_size": {
+                    "w": 24,
+                    "h": 24
+                },
+                "level": 5
+            }
+        },
+        "hits": []
+    },
+    {
+        "body": {
+            "x": 1247,
+            "y": 793,
+            "type": "static",
+            "vel": {
+                "x": 0,
+                "y": 0
+            },
+            "maxVel": {
+                "x": 0,
+                "y": 0
+            },
+            "accel": {
+                "x": 0,
+                "y": 0
+            },
+            "bounds": {
+                "x": 1247,
+                "y": 793,
+                "w": 592,
+                "h": 496
+            }
+        },
+        "components": {
+            "dig_grid": {
+                "width": 37,
+                "height": 31,
+                "node_size": {
+                    "w": 16,
+                    "h": 16
+                },
+                "map": [],
+                "level": 5,
+                "holes": 0,
+                "tile": "dirt",
+                "pattern": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    2,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1,
+                    0,
+                    2,
+                    0,
+                    0,
+                    0,
+                    1,
+                    2,
+                    2,
+                    2,
+                    2,
+                    0,
+                    1,
+                    0,
+                    0,
+                    1,
+                    2,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ]
+            }
+        },
+        "hits": []
+    },
+    {
+        "body": {
+            "x": 1192,
+            "y": 743,
+            "type": "static",
+            "vel": {
+                "x": 0,
+                "y": 0
+            },
+            "maxVel": {
+                "x": 0,
+                "y": 0
+            },
+            "accel": {
+                "x": 0,
+                "y": 0
+            },
+            "bounds": {
+                "x": 1192,
+                "y": 743,
+                "w": 704,
+                "h": 609
+            }
+        },
+        "components": {
+            "lighting": {
+                "width": 22,
+                "height": 19,
+                "node_size": {
+                    "w": 32,
+                    "h": 32
+                },
+                "map": [],
+                "dimness": 0.95,
+                "level": 5
+            }
+        },
+        "hits": []
+    },
+    {
+        "body": {
+            "x": 1255,
+            "y": 805,
+            "type": "none",
+            "vel": {
+                "x": 0,
+                "y": 0
+            },
+            "maxVel": {
+                "x": 0,
+                "y": 0
+            },
+            "accel": {
+                "x": 0,
+                "y": 0
+            },
+            "bounds": {
+                "x": 1255,
+                "y": 805,
+                "w": 0,
+                "h": 0
+            }
+        },
+        "components": {
+            "start_point": {
+                "level": 5,
+                "view": {
+                    "x": 1140,
+                    "y": 690,
+                    "width": 1950,
+                    "height": 1400
+                }
+            }
+        },
+        "hits": []
+    },
+    {
+        "body": {
+            "x": 1297,
+            "y": 1489,
+            "type": 0,
+            "vel": {
+                "x": 0,
+                "y": 0
+            },
+            "maxVel": {
+                "x": 0,
+                "y": 0
+            },
+            "accel": {
+                "x": 0,
+                "y": 0
+            },
+            "bounds": {
+                "x": 1381,
+                "y": 1489,
+                "w": 0,
+                "h": 0
+            }
+        },
+        "components": {
+            "text": {
+                "font": "38pt monospace",
+                "text": "Thanks for playing!",
+                "level": 6
+            }
+        },
+        "hits": []
+    },
+    {
+        "body": {
+            "x": 1300,
+            "y": 1400,
+            "type": "static",
+            "vel": {
+                "x": 0,
+                "y": 0
+            },
+            "maxVel": {
+                "x": 0,
+                "y": 0
+            },
+            "accel": {
+                "x": 0,
+                "y": 0
+            },
+            "bounds": {
+                "x": 1300,
+                "y": 1400,
+                "w": 576,
+                "h": 48
+            }
+        },
+        "components": {
+            "collision_map": true,
+            "pattern": {
+                "name": "walls",
+                "level": 6
+            }
+        },
+        "hits": []
+    },
+    {
+        "body": {
+            "x": 1252,
+            "y": 1400,
+            "type": "static",
+            "vel": {
+                "x": 0,
+                "y": 0
+            },
+            "maxVel": {
+                "x": 0,
+                "y": 0
+            },
+            "accel": {
+                "x": 0,
+                "y": 0
+            },
+            "bounds": {
+                "x": 1252,
+                "y": 1400,
+                "w": 48,
+                "h": 576
+            }
+        },
+        "components": {
+            "collision_map": true,
+            "pattern": {
+                "name": "walls",
+                "level": 6
+            }
+        },
+        "hits": []
+    },
+    {
+        "body": {
+            "x": 1876,
+            "y": 1400,
+            "type": "static",
+            "vel": {
+                "x": 0,
+                "y": 0
+            },
+            "maxVel": {
+                "x": 0,
+                "y": 0
+            },
+            "accel": {
+                "x": 0,
+                "y": 0
+            },
+            "bounds": {
+                "x": 1876,
+                "y": 1400,
+                "w": 48,
+                "h": 576
+            }
+        },
+        "components": {
+            "collision_map": true,
+            "pattern": {
+                "name": "walls",
+                "level": 6
+            }
+        },
+        "hits": []
+    },
+    {
+        "body": {
+            "x": 1300,
+            "y": 1928,
+            "type": "static",
+            "vel": {
+                "x": 0,
+                "y": 0
+            },
+            "maxVel": {
+                "x": 0,
+                "y": 0
+            },
+            "accel": {
+                "x": 0,
+                "y": 0
+            },
+            "bounds": {
+                "x": 1300,
+                "y": 1928,
+                "w": 576,
+                "h": 48
+            }
+        },
+        "components": {
+            "collision_map": true,
+            "pattern": {
+                "name": "walls",
+                "level": 6
+            }
+        },
+        "hits": []
+    },
+    {
+        "body": {
+            "x": 1302,
+            "y": 1450,
+            "type": "none",
+            "vel": {
+                "x": 0,
+                "y": 0
+            },
+            "maxVel": {
+                "x": 0,
+                "y": 0
+            },
+            "accel": {
+                "x": 0,
+                "y": 0
+            },
+            "bounds": {
+                "x": 1302,
+                "y": 1450,
+                "w": 0,
+                "h": 0
+            }
+        },
+        "components": {
+            "start_point": {
+                "level": 6,
+                "view": {
+                    "x": 1200,
+                    "y": 1350,
+                    "width": 2000,
+                    "height": 1980
+                }
+            }
+        },
+        "hits": []
+    },
+    {
+        "body": {
+            "x": 1397,
+            "y": 1561,
+            "type": "dynamic",
+            "vel": {
+                "x": 0,
+                "y": 0
+            },
+            "maxVel": {
+                "x": 1,
+                "y": 1
+            },
+            "accel": {
+                "x": 0,
+                "y": 0
+            },
+            "bounds": {
+                "x": 1397,
+                "y": 1561,
+                "w": 56,
+                "h": 56
+            }
+        },
+        "components": {
+            "ai_controlled": {
+                "speed": 0.5,
+                "interval": 500,
+                "elapsed": 0,
+                "step_size": 64,
+                "target": "player"
+            },
+            "sprite": {
+                "name": "dickle",
+                "anim": "moving",
+                "elapsed": 0,
+                "index": 0,
+                "level": 6
+            },
+            "physical": true,
+            "falls": true
+        },
+        "hits": []
+    },
+    {
+        "body": {
+            "x": 1744,
+            "y": 1548,
+            "type": "dynamic",
+            "vel": {
+                "x": 0,
+                "y": 0
+            },
+            "maxVel": {
+                "x": 1,
+                "y": 1
+            },
+            "accel": {
+                "x": 0,
+                "y": 0
+            },
+            "bounds": {
+                "x": 1744,
+                "y": 1548,
+                "w": 56,
+                "h": 56
+            }
+        },
+        "components": {
+            "ai_controlled": {
+                "speed": 0.5,
+                "interval": 500,
+                "elapsed": 0,
+                "step_size": 64,
+                "target": "player"
+            },
+            "sprite": {
+                "name": "dickle",
+                "anim": "moving",
+                "elapsed": 0,
+                "index": 0,
+                "level": 6
+            },
+            "physical": true,
+            "falls": true
+        },
+        "hits": []
+    },
+    {
+        "body": {
+            "x": 1362,
+            "y": 1784,
+            "type": "dynamic",
+            "vel": {
+                "x": 0,
+                "y": 0
+            },
+            "maxVel": {
+                "x": 1,
+                "y": 1
+            },
+            "accel": {
+                "x": 0,
+                "y": 0
+            },
+            "bounds": {
+                "x": 1362,
+                "y": 1784,
+                "w": 56,
+                "h": 56
+            }
+        },
+        "components": {
+            "ai_controlled": {
+                "speed": 0.5,
+                "interval": 500,
+                "elapsed": 0,
+                "step_size": 64,
+                "target": "player"
+            },
+            "sprite": {
+                "name": "dickle",
+                "anim": "moving",
+                "elapsed": 0,
+                "index": 0,
+                "level": 6
+            },
+            "physical": true,
+            "falls": true
+        },
+        "hits": []
+    },
+    {
+        "body": {
+            "x": 1720,
+            "y": 1728,
+            "type": "dynamic",
+            "vel": {
+                "x": 0,
+                "y": 0
+            },
+            "maxVel": {
+                "x": 1,
+                "y": 1
+            },
+            "accel": {
+                "x": 0,
+                "y": 0
+            },
+            "bounds": {
+                "x": 1720,
+                "y": 1728,
+                "w": 56,
+                "h": 56
+            }
+        },
+        "components": {
+            "ai_controlled": {
+                "speed": 0.5,
+                "interval": 500,
+                "elapsed": 0,
+                "step_size": 64,
+                "target": "player"
+            },
+            "sprite": {
+                "name": "dickle",
+                "anim": "moving",
+                "elapsed": 0,
+                "index": 0,
+                "level": 6
+            },
+            "physical": true,
+            "falls": true
+        },
+        "hits": []
+    },
+    {
+        "body": {
+            "x": 1279,
+            "y": 1428,
+            "type": "static",
+            "vel": {
+                "x": 0,
+                "y": 0
+            },
+            "maxVel": {
+                "x": 0,
+                "y": 0
+            },
+            "accel": {
+                "x": 0,
+                "y": 0
+            },
+            "bounds": {
+                "x": 1279,
+                "y": 1428,
+                "w": 607,
+                "h": 524
+            }
+        },
+        "components": {
+            "box": {
+                "color": "rgb(128,70,0)",
+                "level": 6
             }
         },
         "hits": []

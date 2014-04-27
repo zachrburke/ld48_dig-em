@@ -34,10 +34,13 @@ function(Physics, Graphics, Level) {
 	};
 
 	Systems.player = function(e, c) {
-		var box = e.components.box;
+		var sprite = e.components.sprite;
 
-		if (box) 
-			Level.level = box.level;
+		if (sprite) 
+			Level.level = sprite.level;
+
+		if (Level.level === 6)
+			e.components.invulnerable = true;
 	};
 
 	Systems.stun = function(e, c) {
@@ -52,15 +55,26 @@ function(Physics, Graphics, Level) {
 	};
 
 	Systems.invulnerable = function(e, c) {
-		var box = e.components.box;
+		var sprite = e.components.sprite;
 
 		c.elapsed += Physics.delta;
 
 		if (c.elapsed >= c.interval) {
 			delete e.components.invulnerable;
 
-			if (box)
-				box.alpha = 1.0;
+			if (sprite)
+				sprite.alpha = 1.0;
+		}
+	};
+
+	Systems.burns = function(e, c) {
+		var lava = e.Touches('lava')[0];
+
+		if (e.components.invulnerable)
+			return;
+
+		if (lava) {
+			e.Kill();
 		}
 	};
 

@@ -2,8 +2,13 @@ extends layout
 
 block content
 	h1 Dig'em
+	h4 Movement - WASD | Dig - E
 	#GamePanel
 		strong(id='PreloadMsg') Loading...
 		canvas(id='GameCanvas')
+
+	div.Info This is my entry for 
+		a(href='http://www.ludumdare.com/compo/2014/04/23/welcome-to-ludum-dare-29er/') Ludum Dare 29 
+		strong Beneath the surface
 
 	script(src="/js/lib/require.js", data-main="/js/main")

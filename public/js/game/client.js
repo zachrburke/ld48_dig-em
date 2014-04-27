@@ -17,15 +17,31 @@ define([
 		entities: [],
 
 		Preload: function(callback) {
-			// var requestedAssets = 0;
-			// var loadedAssets = 0;
-			// var onAssetLoad = function() {
-			// 	loadedAssets++;
-			// 	if (requestedAssets === loadedAssets && callback)
-			// 		callback();
-			// };
+			var requestedAssets = 5;
+			var loadedAssets = 0;
+			var onAssetLoad = function() {
+				loadedAssets++;
+				if (requestedAssets === loadedAssets && callback)
+					callback();
+			};
 
-			callback();
+			var dickle = Graphics.LoadSprite('/images/Sprites/dickle.png', 'dickle', 56, 56, onAssetLoad);
+			dickle.AddAnimation('idle', 0, [0]);
+			dickle.AddAnimation('moving', 150, [0, 1, 2]); 
+
+			var spickle = Graphics.LoadSprite('/images/Sprites/spickle.png', 'spickle', 48, 48, onAssetLoad);
+			spickle.AddAnimation('idle', 0, [0]);
+			spickle.AddAnimation('moving', 150, [0, 1, 2]); 
+
+			var light = Graphics.LoadSprite('/images/Sprites/light.png', 'light', 32, 32, onAssetLoad);
+			light.AddAnimation('idle', 0, [0]);
+
+			var lava = Graphics.LoadSprite('/images/Sprites/lava.png', 'lava', 24, 24, onAssetLoad);
+			lava.AddAnimation('idle', 150, [0, 1, 2]);
+
+			Graphics.LoadSprite('/images/Tiles/dirt.png', 'dirt', 16, 16, onAssetLoad);
+
+			Graphics.LoadPattern('/images/Tiles/walls.png', 'walls', onAssetLoad);
 		},
 
 		Start: function(id, w, h) {

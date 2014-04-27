@@ -22,8 +22,8 @@ define(['shared/game/physics'], function(Physics) {
 			if (player.components.health)
 				player.components.health -= c.damage;
 
-			if (player.components.box)
-				player.components.box.alpha = 0.4;
+			if (player.components.sprite)
+				player.components.sprite.alpha = 0.4;
 
 			player.components.stun = {
 				elapsed: 0,

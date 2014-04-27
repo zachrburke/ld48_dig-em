@@ -3,6 +3,8 @@ define(function() {
 
 		images: {},
 		sprites: {},
+		patterns: {},
+
 		offset: { x: 0, y: 0 },
 
 		Systems: {},
@@ -29,7 +31,18 @@ define(function() {
 			return Graphics.sprites[name];
 		},
 
-		
+		LoadPattern: function(url, name, callback) {
+			var pattern = {};
+			Graphics.patterns[name] = pattern;
+			pattern.image = new Image();
+			pattern.image.src = url;
+			pattern.image.onload = function() {
+				pattern.pattern = Graphics.context.createPattern(pattern.image, 'repeat');
+
+				if (callback)
+					callback.apply(pattern);
+			};
+		}
 	};
 
 	Graphics.Sprite = function(url, w, h, callback) {

@@ -20,6 +20,15 @@ define(['game/graphics'], function(Graphics) {
 		Graphics.context.restore();
 	};
 
+	Systems.lava = function(e, c) {
+		Graphics.context.save();
+		Graphics.context.translate(-Graphics.offset.x, -Graphics.offset.y);
+
+		_drawGrid(e, c, c.node_size);
+
+		Graphics.context.restore();
+	};
+
 	Systems.tilemap = function(e, c) {
 		var sprite = Graphics.sprites[c.sprite];
 

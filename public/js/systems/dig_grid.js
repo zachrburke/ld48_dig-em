@@ -31,12 +31,16 @@ define(['shared/game/physics'], function(Physics) {
 	Systems.falling = function(e, c) {
 		var box = e.components.box,
 			center = e.components.center,
+			sprite = e.components.sprite,
 			step = Physics.delta / c.interval;
 
 		c.elapsed += Physics.delta;
 
 		if (box)
 			box.level += step;
+
+		if (sprite)
+			sprite.level += step;
 
 		if (center) {
 			center.view.x += c.tween.view.x * step;
@@ -53,13 +57,19 @@ define(['shared/game/physics'], function(Physics) {
 			e.components.physical = true;
 
 			delete e.components.falling;
+			delete e.components.invulnerable;
 
 			e.body.x = c.new_pos.x;
 			e.body.y = c.new_pos.y;
 
 			if (box) {
 				box.alpha = 1.0;
-				box.level = Math.round(box.level);
+				box.level = c.level;
+			}
+
+			if (sprite) {
+				sprite.alpha = 1.0;
+				sprite.level = c.level;
 			}
 
 			if (center) {
@@ -68,6 +78,8 @@ define(['shared/game/physics'], function(Physics) {
 				// putting it at the beginning so it draws on top of everything...
 				center.view = c.view;
 				var lighting = _findLighting(c.level);
+				if (!lighting)
+					return;
 				var index = Client.entities.indexOf(lighting);
 				var thing = Client.entities.splice(index, 1);
 				Client.entities.unshift(lighting);
@@ -210,14 +222,18 @@ define(['shared/game/physics'], function(Physics) {
 
 	function _dropEntity(e, start_point, grid) {
 		var center = e.components.center,
-			box = e.components.box;
+			box = e.components.box,
+			sprite = e.components.sprite,
+			current_start_point = _findStartPoint(start_point.components.start_point.level - 1);
+
+			var pos = current_start_point ? current_start_point.body : grid.body;
 
 		e.components.falling = {
 			interval: 500,
 			elapsed: 0,
 			new_pos: {
-				x: (e.body.x - grid.body.x) + start_point.body.x,
-				y: (e.body.y - grid.body.y) + start_point.body.y
+				x: (e.body.x - pos.x) + start_point.body.x,
+				y: (e.body.y - pos.y) + start_point.body.y
 			},
 			view: start_point.components.start_point.view,
 			level: start_point.components.start_point.level
@@ -244,8 +260,13 @@ define(['shared/game/physics'], function(Physics) {
 		delete e.components.falls;
 		delete e.components.physical;
 
+		e.components.invulnerable = true;
+
 		if (box)
 			box.alpha = 0.5;
+
+		if (sprite)
+			sprite.alpha = 0.5;
 	}
 
 	function _changeLighting(level, dig_grid) {
