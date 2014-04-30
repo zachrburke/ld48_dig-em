@@ -93,7 +93,7 @@
     },
     {
         "body": {
-            "x": 736,
+            "x": 689,
             "y": 128,
             "type": "static",
             "maxVel": {
@@ -249,7 +249,7 @@
         },
         "components": {
             "dig_grid": {
-                "width": 43,
+                "width": 40,
                 "height": 19,
                 "node_size": {
                     "w": 16,
@@ -355,7 +355,7 @@
     {
         "body": {
             "x": 1040,
-            "y": 112,
+            "y": 64,
             "type": "static",
             "maxVel": {
                 "x": 0,
@@ -367,9 +367,9 @@
             },
             "bounds": {
                 "x": 1040,
-                "y": 112,
+                "y": 64,
                 "w": 48,
-                "h": 384
+                "h": 480
             }
         },
         "components": {
@@ -383,36 +383,7 @@
     },
     {
         "body": {
-            "x": 1690,
-            "y": 112,
-            "type": "static",
-            "maxVel": {
-                "x": 0,
-                "y": 0
-            },
-            "accel": {
-                "x": 0,
-                "y": 0
-            },
-            "bounds": {
-                "x": 1690,
-                "y": 112,
-                "w": 48,
-                "h": 384
-            }
-        },
-        "components": {
-            "pattern": {
-                "name": "walls",
-                "level": 2
-            },
-            "collision_map": true
-        },
-        "hits": []
-    },
-    {
-        "body": {
-            "x": 1088,
+            "x": 1687,
             "y": 64,
             "type": "static",
             "maxVel": {
@@ -424,10 +395,10 @@
                 "y": 0
             },
             "bounds": {
-                "x": 1088,
+                "x": 1687,
                 "y": 64,
                 "w": 48,
-                "h": 48
+                "h": 480
             }
         },
         "components": {
@@ -441,94 +412,7 @@
     },
     {
         "body": {
-            "x": 1088,
-            "y": 496,
-            "type": "static",
-            "maxVel": {
-                "x": 0,
-                "y": 0
-            },
-            "accel": {
-                "x": 0,
-                "y": 0
-            },
-            "bounds": {
-                "x": 1088,
-                "y": 496,
-                "w": 48,
-                "h": 48
-            }
-        },
-        "components": {
-            "pattern": {
-                "name": "walls",
-                "level": 2
-            },
-            "collision_map": true
-        },
-        "hits": []
-    },
-    {
-        "body": {
-            "x": 1642,
-            "y": 64,
-            "type": "static",
-            "maxVel": {
-                "x": 0,
-                "y": 0
-            },
-            "accel": {
-                "x": 0,
-                "y": 0
-            },
-            "bounds": {
-                "x": 1642,
-                "y": 64,
-                "w": 48,
-                "h": 48
-            }
-        },
-        "components": {
-            "pattern": {
-                "name": "walls",
-                "level": 2
-            },
-            "collision_map": true
-        },
-        "hits": []
-    },
-    {
-        "body": {
-            "x": 1642,
-            "y": 496,
-            "type": "static",
-            "maxVel": {
-                "x": 0,
-                "y": 0
-            },
-            "accel": {
-                "x": 0,
-                "y": 0
-            },
-            "bounds": {
-                "x": 1642,
-                "y": 496,
-                "w": 48,
-                "h": 48
-            }
-        },
-        "components": {
-            "pattern": {
-                "name": "walls",
-                "level": 2
-            },
-            "collision_map": true
-        },
-        "hits": []
-    },
-    {
-        "body": {
-            "x": 1138,
+            "x": 1040,
             "y": 16,
             "type": "static",
             "maxVel": {
@@ -540,9 +424,9 @@
                 "y": 0
             },
             "bounds": {
-                "x": 1138,
+                "x": 1040,
                 "y": 16,
-                "w": 504,
+                "w": 696,
                 "h": 48
             }
         },
@@ -557,7 +441,7 @@
     },
     {
         "body": {
-            "x": 1138,
+            "x": 1040,
             "y": 543,
             "type": "static",
             "maxVel": {
@@ -569,9 +453,9 @@
                 "y": 0
             },
             "bounds": {
-                "x": 1138,
+                "x": 1040,
                 "y": 543,
-                "w": 504,
+                "w": 696,
                 "h": 48
             }
         },
@@ -586,8 +470,8 @@
     },
     {
         "body": {
-            "x": 1146,
-            "y": 71,
+            "x": 1092,
+            "y": 69,
             "type": "none",
             "maxVel": {
                 "x": 0,
@@ -598,8 +482,8 @@
                 "y": 0
             },
             "bounds": {
-                "x": 1146,
-                "y": 71,
+                "x": 1092,
+                "y": 69,
                 "w": 0,
                 "h": 0
             }
@@ -831,8 +715,8 @@
     },
     {
         "body": {
-            "x": 1088,
-            "y": 65,
+            "x": 1087,
+            "y": 63,
             "type": "static",
             "maxVel": {
                 "x": 0,
@@ -843,16 +727,16 @@
                 "y": 0
             },
             "bounds": {
-                "x": 1088,
-                "y": 65,
+                "x": 1087,
+                "y": 63,
                 "w": 304,
-                "h": 256
+                "h": 208
             }
         },
         "components": {
             "dig_grid": {
                 "width": 19,
-                "height": 16,
+                "height": 13,
                 "node_size": {
                     "w": 16,
                     "h": 16
@@ -885,7 +769,7 @@
     {
         "body": {
             "x": 1386,
-            "y": 304,
+            "y": 333,
             "type": "static",
             "maxVel": {
                 "x": 0,
@@ -897,15 +781,15 @@
             },
             "bounds": {
                 "x": 1386,
-                "y": 304,
+                "y": 333,
                 "w": 304,
-                "h": 240
+                "h": 208
             }
         },
         "components": {
             "dig_grid": {
                 "width": 19,
-                "height": 15,
+                "height": 13,
                 "node_size": {
                     "w": 16,
                     "h": 16
@@ -989,7 +873,7 @@
                 "x": 1388,
                 "y": 64,
                 "w": 302,
-                "h": 241
+                "h": 271
             }
         },
         "components": {
@@ -1003,7 +887,7 @@
     {
         "body": {
             "x": 1087,
-            "y": 311,
+            "y": 267,
             "type": "static",
             "maxVel": {
                 "x": 0,
@@ -1015,9 +899,9 @@
             },
             "bounds": {
                 "x": 1087,
-                "y": 311,
-                "w": 299,
-                "h": 234
+                "y": 267,
+                "w": 303,
+                "h": 285
             }
         },
         "components": {
@@ -2520,7 +2404,7 @@
                 "y": 0
             },
             "bounds": {
-                "x": 1381,
+                "x": 1297,
                 "y": 1489,
                 "w": 0,
                 "h": 0

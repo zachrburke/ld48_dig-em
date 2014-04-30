@@ -17,7 +17,7 @@ define([
 		entities: [],
 
 		Preload: function(callback) {
-			var requestedAssets = 5;
+			var requestedAssets = 6;
 			var loadedAssets = 0;
 			var onAssetLoad = function() {
 				loadedAssets++;

@@ -18,6 +18,16 @@ define(function() {
 			Graphics.context = Graphics.canvas.getContext('2d');
 			Graphics.canvas.width = w;
 			Graphics.canvas.height = h;
+
+			Graphics.InitPatterns();
+		},
+
+		InitPatterns: function() {
+			var key, pattern;
+			for (key in Graphics.patterns) {
+				pattern = Graphics.patterns[key];
+				pattern.pattern = Graphics.context.createPattern(pattern.image, 'repeat');
+			}
 		},
 
 		LoadImage: function(url, name, callback) {
@@ -37,8 +47,6 @@ define(function() {
 			pattern.image = new Image();
 			pattern.image.src = url;
 			pattern.image.onload = function() {
-				pattern.pattern = Graphics.context.createPattern(pattern.image, 'repeat');
-
 				if (callback)
 					callback.apply(pattern);
 			};
