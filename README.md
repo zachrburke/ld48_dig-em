@@ -1,21 +1,4 @@
-##Phatformer
+# Dig'em
 
-A 2D Platformer written in HTML5 for the Phatformer challenge, rules below.
+A top down game where you play as a slime and try to dig your way to the bottom. 
 
-##Phatformer Challenge
-
-Make a game with the following features
-
-* Platformer
-
-* Gravity
-* Collision Detection
-* Projectile Launching
-* Jet packs
-* walking
-* 2d
-* bad guys
-* scores
-* health & death
-
-bonus feature: multiplayer
